@@ -13,7 +13,7 @@
             scrollSpeed: 400,
             bodyHeight: 0,
             linksArray: [],
-            mobile: true,
+            mobile: false,
             scrollButtons: {},
             controls: null,
             curtainLinks: '.curtain-links',
