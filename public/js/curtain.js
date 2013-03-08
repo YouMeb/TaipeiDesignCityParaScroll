@@ -159,7 +159,7 @@
                 }, self.options.scrollSpeed, self.options.easing);
             } else {
                 var index = $("#"+direction).index(),
-                    speed = Math.abs(self.currentIndex-index) * (this.options.scrollSpeed*4) / self.$liLength;
+                    speed = Math.abs(self.currentIndex-index) * (this.options.scrollSpeed*1) / self.$liLength;
 
                 self.scrollEl.animate({
                     scrollTop:self.$elDatas[index]['data-position'] || null
