@@ -38,7 +38,6 @@
 
         this.init();
     }
-
     Plugin.prototype = {
         init: function () {
             var self = this;
