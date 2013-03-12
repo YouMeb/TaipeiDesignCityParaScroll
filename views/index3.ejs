@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title></title>
+		<link rel='stylesheet' href='/css/tdc.css' />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="/js/modernizr.custom.js"></script>
+		<script src="/js/jquery.scrollAnimate.js"></script>
+		<script src="/js/TweenMax.js"></script>
+		<script src="/js/jquery.superscrollorama.js"></script>
+		
+	</head>
+	<body>
+		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
+		<div class="line_fr">
+			<div class="line_fr_l" id="line_fr_l">
+			</div>
+			<div class="line_fr_left" id ="logo_line">
+			<ul>
+				<li class="line_1">
+				</li>
+				<li class="line_2">
+				</li>
+				<li class="line_3">
+				</li>
+				<li class="line_4">
+				</li>
+				<li class="line_5">
+				</li>
+			</ul>
+			</div>
+			<div class="line_fr_right">
+				<div id="loading_fr"></div>
+				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
+			</div>
+		</div>
+
+	</body>
+	<script>
+
+		var logo_line = document.getElementById('logo_line');
+		var logo_pic_fr = document.getElementById('logo_pic_fr');
+		var line_fr_l = document.getElementById('line_fr_l');
+		var s_logo_pic_fr = document.getElementById('s_logo_pic_fr');
+		var body_fr = $('body');
+
+		var loading_fr = document.getElementById('loading_fr');
+		var i=0;
+		function al(){   
+		   i++;
+		   if(i<101) setTimeout(function(){
+		   	loading_fr.innerHTML=i+'%';
+		   	al();
+		   	if (i == 100){
+		  //  		$('#A').fadeOut().promise().pipe(function () {
+				//     return $('#B').fadeOut().promise();
+				// }).pipe(function () {
+				//     return $('#C').fadeOut().promise();
+				// });
+		   		display_after_loading();
+		   	}
+		   },10);
+		}
+   		function display_after_loading(){
+			TweenMax.to(logo_line, 1, {width:"100%"})
+			setTimeout('TweenMax.to(logo_pic_fr, .3, {width:"0%",opacity:"0%"})',300);
+			setTimeout('TweenMax.to(logo_line, 1, {width:"0%","margin-left":"100%"})',1400);
+			setTimeout('TweenMax.to(s_logo_pic_fr, 1, {"opacity":"1"})',1400);
+			
+		}
+		// TweenMax.from(body_fr, .5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
+		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
+		// var controller = $.superscrollorama();
+		// controller.addTween('#logo_line', TweenMax.fromTo(logo_line, .5, {css:{width: '5%'}},{css:{width: '100%'}},.25,1));
+		Modernizr.load([
+			{
+				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
+				both : [ '/js/TweenMax.js' ,'/js/jquery.scrollAnimate.js'],
+				complete : function () {
+				  console.log('final2!!!')
+				  al();
+				}
+			}
+		]);
+	</script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</html>

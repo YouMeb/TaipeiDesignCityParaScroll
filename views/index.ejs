@@ -22,7 +22,9 @@
 		            <div style="position:relative;background:red;width:200px;height:40px;z-index:9999" class="yo"></div>
 		            <div style="position:relative;background:blue;width:200px;height:40px;z-index:9999" class="yo1"></div>
 		            <div id="examples-1">
-						<div id="fade-it">Fade It</div>
+						<div id="fade-it" style="background:red;width:100px;height:50px">Fade It</div>
+
+						<div id="fade-it1" style="background:blue;width:100px;height:50px"></div>
 						<h2 id="fly-it">Fly It</h2>
 						<h2 id="spin-it">Spin It</h2>
 						<h2 id="scale-it">Scale It</h2>
@@ -102,17 +104,17 @@
 		<script src="/js/jquery.superscrollorama.js"></script>
 		<script>
 		    $(function(){
-		        $(window).bind('scroll',function(e){
-		            parallaxScroll();
-		            //redrawDotNav();
-		        });
-		        function parallaxScroll(){
-		            var scrolled = $(window).scrollTop();
-		            console.log(scrolled);
-		            $('.yo').css('top',(0-(scrolled*.25))+'px');
-		            $('.yo1').css('top',(0-(scrolled*.5))+'px');
-		            // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
-		        }
+		        // $(window).bind('scroll',function(e){
+		        //     parallaxScroll();
+		        //     //redrawDotNav();
+		        // });
+		        // function parallaxScroll(){
+		        //     var scrolled = $(window).scrollTop();
+		        //     console.log(scrolled);
+		        //     $('.yo').css('top',(0-(scrolled*.25))+'px');
+		        //     $('.yo1').css('top',(0-(scrolled*.5))+'px');
+		        //     // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+		        // }
 		       $('.curtains').curtain({
 		           scrollSpeed: 300,
 		           controls: '#menu',
@@ -122,9 +124,13 @@
 		           }
 		       });
 		       var controller = $.superscrollorama();
+		       var scrolled = $(window).scrollTop();
+
 				// individual element tween examples
-				controller.addTween('#fade-it', TweenMax.from( $('#fade-it'), .5, {css:{opacity: 0}}));
-				controller.addTween('#fly-it', TweenMax.from( $('#fly-it'), .25, {css:{right:'1000px'}, ease:Quad.easeInOut}));
+				controller.addTween('#fade-it', TweenMax.fromTo( $('#fade-it'), .25, {css:{position:'relative',top:0}, immediateRender:true, ease:Quad.easeInOut}, {css:{position:'relative',top:0-(scrolled*.25)}, ease:Quad.easeInOut}));
+				controller.addTween('#fade-it1', TweenMax.fromTo( $('#fade-it'), .25, {css:{position:'relative',top:0}, immediateRender:true, ease:Quad.easeInOut}, {css:{position:'relative',top:0-(scrolled*.5)}, ease:Quad.easeInOut}));
+
+				controller.addTween('#fly-it', TweenMax.from( $('#fly-it'), .25, {css:{position:'relative',right:'1000px'}, ease:Quad.easeInOut}));
 				controller.addTween('#spin-it', TweenMax.from( $('#spin-it'), .25, {css:{opacity:0, rotation: 720}, ease:Quad.easeOut}));
 				controller.addTween('#scale-it', TweenMax.fromTo( $('#scale-it'), .25, {css:{opacity:0, fontSize:'20px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, fontSize:'240px'}, ease:Quad.easeInOut}));
 				controller.addTween('#smush-it', TweenMax.fromTo( $('#smush-it'), .25, {css:{opacity:0, 'letter-spacing':'30px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, 'letter-spacing':'-10px'}, ease:Quad.easeInOut}), 0, 100);
