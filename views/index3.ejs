@@ -3,7 +3,7 @@
 	<head>
 	<title></title>
 		<link rel='stylesheet' href='/css/tdc.css' />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="/js/jquery.js"></script>
 		<script src="/js/modernizr.custom.js"></script>
 		<script src="/js/jquery.scrollAnimate.js"></script>
 		<script src="/js/TweenMax.js"></script>
@@ -12,20 +12,47 @@
 	</head>
 	<body>
 		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
-		<div class="line_fr">
+		<div class="line_fr" id="line_fr">
 			<div class="line_fr_l" id="line_fr_l">
+				<ul>
+					<li class="title_1">
+						不斷提昇的城市
+					</li>
+					<li class="title_2">
+						走過的路
+					</li>
+					<li class="title_3">
+						社群動起來
+					</li>
+					<li class="title_4">
+						熱血正燃燒
+					</li>
+					<li class="title_5">
+						被世界看見
+					</li>
+				</ul>
 			</div>
 			<div class="line_fr_left" id ="logo_line">
 			<ul>
 				<li class="line_1">
+					<img src="/img/tag_fr1.png" class="tag_tr"/>
+					<div class="cr_fr"></div>
 				</li>
 				<li class="line_2">
+					<img src="/img/tag_fr2.png" class="tag_tr"/>
+					<div class="cr_fr"></div>
 				</li>
 				<li class="line_3">
+					<img src="/img/tag_fr3.png" class="tag_tr"/>
+					<div class="cr_fr"></div>
 				</li>
-				<li class="line_4">
+				<li class="line_4" id="tag_trf4">
+					<img src="/img/tag_fr4.png" class="tag_tr" />
+					<div class="cr_fr"></div>
 				</li>
 				<li class="line_5">
+					<img src="/img/tag_fr5.png" class="tag_tr"/>
+					<div class="cr_fr"></div>
 				</li>
 			</ul>
 			</div>
@@ -34,44 +61,75 @@
 				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
 			</div>
 		</div>
-
 	</body>
 	<script>
 
 		var logo_line = document.getElementById('logo_line');
+		var line_fr = document.getElementById('line_fr');
 		var logo_pic_fr = document.getElementById('logo_pic_fr');
 		var line_fr_l = document.getElementById('line_fr_l');
 		var s_logo_pic_fr = document.getElementById('s_logo_pic_fr');
+		var tag_trf4 = document.getElementById('tag_trf4');
+		var line_fr_right = document.getElementById('line_fr_right');
 		var body_fr = $('body');
-
 		var loading_fr = document.getElementById('loading_fr');
+		
 		var i=0;
+
 		function al(){   
 		   i++;
 		   if(i<101) setTimeout(function(){
 		   	loading_fr.innerHTML=i+'%';
 		   	al();
 		   	if (i == 100){
-		  //  		$('#A').fadeOut().promise().pipe(function () {
-				//     return $('#B').fadeOut().promise();
-				// }).pipe(function () {
-				//     return $('#C').fadeOut().promise();
-				// });
 		   		display_after_loading();
 		   	}
 		   },10);
 		}
    		function display_after_loading(){
-			TweenMax.to(logo_line, 1, {width:"100%"})
-			setTimeout('TweenMax.to(logo_pic_fr, .3, {width:"0%",opacity:"0%"})',300);
-			setTimeout('TweenMax.to(logo_line, 1, {width:"0%","margin-left":"100%"})',1400);
-			setTimeout('TweenMax.to(s_logo_pic_fr, 1, {"opacity":"1"})',1400);
+   			setTimeout('TweenMax.to(logo_pic_fr, .5, {"opacity":"1"});',300)
+   			TweenMax.to(loading_fr, .3, {"display":"none","opacity":"1"});
+			setTimeout('TweenMax.to(logo_line, 1, {width:"100%"});',1500);
+			setTimeout('TweenMax.to(tag_trf4, .1, {width:"100%","margin-left":"0%"})',1500);
+			setTimeout('TweenMax.to(logo_pic_fr, .3, {"margin-left":"10%","opacity":"0","display":"none"})',1700);
+			setTimeout('TweenMax.to(logo_line, 1, {width:"7%","margin-left":"93%"})',2500);
+			setTimeout('TweenMax.to(s_logo_pic_fr, 1, {"opacity":"1"})',2500);
+			setTimeout('TweenMax.to(line_fr, .0, {"width":"7%","position":"fixed","margin-left":"0","right":"0","z-index":"99"})',3500);
+			setTimeout('TweenMax.to(logo_line, .0, {"width":"100%","height":" ","float":" ","margin-left":"40px"})',3500);
+		
 			
+
+			setTimeout(addtagClass(),3500);
+			setTimeout(hovertagcontent(),6000);
 		}
 		// TweenMax.from(body_fr, .5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
 		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
 		// var controller = $.superscrollorama();
 		// controller.addTween('#logo_line', TweenMax.fromTo(logo_line, .5, {css:{width: '5%'}},{css:{width: '100%'}},.25,1));
+
+		function hovertagcontent(){
+			$('.line_fr_l').addClass('line_fr_left_ac');
+			line_fr_l.style.display='block';
+		}
+		function addtagClass(){
+			$('.line_1').addClass('line_tr_1');
+
+			$('.line_2').addClass('line_tr_2');
+			$('.line_3').addClass('line_tr_3');
+			$('.line_4').addClass('line_tr_4');
+			$('.line_5').addClass('line_tr_5');
+			var $hovertag = $('.line_fr_left').find('li');
+			$hovertag.bind({
+			  mouseenter: function(){
+			   TweenMax.to($(this), .4, {"margin-left":"-40px"})
+			  },
+			  mouseleave: function(){
+			   TweenMax.to($(this), .4, {"margin-left":"0px"})
+			  }
+			});
+		}
+
+
 		Modernizr.load([
 			{
 				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
