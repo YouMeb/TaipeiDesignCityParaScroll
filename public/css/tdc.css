@@ -55,7 +55,7 @@ ol, ul {
     opacity: 0;
 }
 .tag_tr{
-    margin-left: -10px;
+    margin-left: -17px;
     float: left;
 }
 .cr_fr{
@@ -70,7 +70,6 @@ ol, ul {
 }
 
 .line_1{
-
     width: 100%;
     height: 48px;
     background:#A4002C; 
@@ -112,7 +111,7 @@ ol, ul {
 }
 .title_1_a,.title_2_a,.title_3_a,.title_4_a,.title_5_a{
     display: none;
-     padding-top: 10px;
+    padding-top: 10px;
 }
 
 .title_1,.title_2,.title_3,.title_4,.title_5{

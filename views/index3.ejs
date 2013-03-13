@@ -4,12 +4,15 @@
 	<title></title>
 		<link rel='stylesheet' href='/css/tdc.css' />
 		<link rel='stylesheet' href='/css/animate.css' />
+				<link rel='stylesheet' href='/css/style.css' />
+		<link rel='stylesheet' href='/css/curtain.css' />
+		<link rel='stylesheet' href='/css/base.css' />
 		<script src="/js/jquery.js"></script>
 		<script src="/js/modernizr.custom.js"></script>
 		<script src="/js/jquery.scrollAnimate.js"></script>
 		<script src="/js/TweenMax.js"></script>
 		<script src="/js/jquery.superscrollorama.js"></script>
-		
+		<script src="/js/curtain.js"></script>
 	</head>
 	<body>
 		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
@@ -62,6 +65,91 @@
 				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
 			</div>
 		</div>
+		<ul class="curtains">
+		    <!--<li id="section-1" class="cover" data-parallax-background="-.05">-->
+		    <li id="section-1" class="cover">
+		        <header data-fade="550" data-slow-scroll="3">
+		            <h1>curtain.js</h1>
+		            <h2>an easy to use scrolling plugin</h2>
+		            <a href="#section-3">a</a>
+		            <div style="position:relative;background:red;width:200px;height:40px;z-index:9999" class="yo"></div>
+		            <div style="position:relative;background:blue;width:200px;height:40px;z-index:9999" class="yo1"></div>
+		            <div id="examples-1">
+						<div id="fade-it" style="background:red;width:100px;height:50px">Fade It</div>
+						<div id="fade-it1" style="background:blue;width:100px;height:50px"></div>
+						<h2 id="fly-it">Fly It</h2>
+						<h2 id="spin-it">Spin It</h2>
+						<h2 id="scale-it">Scale It</h2>
+						<h2 id="smush-it">Smush It</h2>
+					</div>
+		        </header>
+		    </li>
+		    <li id="section-2">
+		        <article>
+		            <h4>What's Curtain.js?</h4>
+		            <hr>
+		            <p>This plugin allows you to create a web page with multiple fixed panels that unroll
+		            with an amusing effect. Exactly like a curtain rises.</p>
+		            <p>To navigate, you can use your keyboard instead the scrollbar or your mousewheel to navigate
+		            into the document. But that's not all, there is more features!<br>
+		            You can scroll into this document to view some of them.</p>
+		            <h4>How it's works?</h4>
+		            <hr>
+		            <p>You can find all instructions about the plugin on the <a href="#">github page</a>.</p>
+		            <p></p>
+		            <p>Feel free to fork the project on <a href="#">github</a> or ping me on
+		            <a href="#">twitter</a> for any comments.</p>
+		            <p></p>
+		            <p class="align-center">
+		               <a href="#" class="button">download</a>
+		               <a href="#" class="button">instructions</a> 
+		            </p>
+		        </article>
+		    </li>
+		    <li id="section-3">
+		        <section class="photos">
+		            <div class="fixed">
+		                <h4>Here's a fixed title</h4>
+		                <p>With a small fixed text.</p>
+		                <p>Oh, and you can see my last selected Instagram pictures on the left.</p>
+		            </div>
+		            <div class="photos-inner">
+		                <ul class="step-list">
+		                    <li class="step">
+		                        <img src="img/stepbystep/1.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/2.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/3.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/4.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/5.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/6.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/7.jpg" alt="">
+		                    </li>
+		                    <li class="step">
+		                        <img src="img/stepbystep/8.jpg" alt="">
+		                    </li>
+		                </ul>
+		            </div>
+		        </section>
+		    </li>
+		    <li id="section-4">
+		        <section class="download">
+		            <h1>Interested?</h1>
+		            <a href="#">download on github</a>
+		        </section>
+		    </li>
+		</ul>
 
 
 
@@ -145,24 +233,32 @@
 					var section = $(this).data('section');
 					switch(section) {
 						case 'city':
-							$('.title_1 > a').removeClass('fadeInRight').addClass('fadeOutRight')
+							$('.title_1 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
 							break;
 						case 'road':
-							$('.title_2 > a').removeClass('fadeInRightRight').addClass('fadeOutRight')
+							$('.title_2 > a').removeClass('fadeInRightRight display').addClass('fadeOutRight')
 							break;
 						case 'sociaty':
-							$('.title_3 > a').removeClass('fadeInRight').addClass('fadeOutRight')
+							$('.title_3 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
 							break;
 						case 'hotblood':
-							$('.title_4 > a').removeClass('fadeInRight').addClass('fadeOutRight')
+							$('.title_4 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
 							break;
 						case 'world':
-							$('.title_5 > a').removeClass('fadeInRight').addClass('fadeOutRight')
+							$('.title_5 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
 							break;
 					}
 				}
 			});
 		}
+		$('.curtains').curtain({
+			scrollSpeed: 300,
+			controls: '#menu',
+			curtainLinks: '.curtain-links',
+			nextSlide: function(){
+			console.log("ok");
+			}
+		});
 		Modernizr.load([
 			{
 				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
