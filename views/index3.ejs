@@ -161,10 +161,9 @@
 		Modernizr.load([
 			{
 				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
-				both : [ '/js/TweenMax.js' ,'/js/jquery.scrollAnimate.js'],
+				both : [ '/js/TweenMax.js' ,'/js/jquery.scrollAnimate.js','/js/jquery.js'],
 				complete : function () {
-				  //console.log('final2!!!')
-				  al();
+					al();
 				}
 			}
 		]);
