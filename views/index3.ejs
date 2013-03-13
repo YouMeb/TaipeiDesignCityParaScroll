@@ -64,17 +64,16 @@
 	</body>
 	<script>
 
-		var logo_line = document.getElementById('logo_line');
-		var line_fr = document.getElementById('line_fr');
-		var logo_pic_fr = document.getElementById('logo_pic_fr');
-		var line_fr_l = document.getElementById('line_fr_l');
-		var s_logo_pic_fr = document.getElementById('s_logo_pic_fr');
-		var tag_trf4 = document.getElementById('tag_trf4');
-		var line_fr_right = document.getElementById('line_fr_right');
-		var body_fr = $('body');
-		var loading_fr = document.getElementById('loading_fr');
-		
-		var i=0;
+		var logo_line = document.getElementById('logo_line'),
+			line_fr = document.getElementById('line_fr'),
+			logo_pic_fr = document.getElementById('logo_pic_fr'),
+			line_fr_l = document.getElementById('line_fr_l'),
+			s_logo_pic_fr = document.getElementById('s_logo_pic_fr'),
+			tag_trf4 = document.getElementById('tag_trf4'),
+			line_fr_right = document.getElementById('line_fr_right'),
+			body_fr = $('body'),
+			loading_fr = document.getElementById('loading_fr'),
+			i=0;
 
 		function al(){   
 		   i++;
@@ -86,12 +85,13 @@
 		   	}
 		   },10);
 		}
+
    		function display_after_loading(){
 			setTimeout('',300)
 			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
 			TweenMax.to(loading_fr, .3, {"display":"none",alpha:1});
 			TweenMax.to(logo_line, 1, {width:"100%",delay:1.5});
-			TweenMax.to(tag_trf4, .1, {width:"100%",position:"relative",left:"0%",delay:1.5});
+			TweenMax.to(tag_trf4, .1, {width:"100%",left:"0%",delay:1.5});
 			TweenMax.to(logo_pic_fr, .3, {"margin-left":"10%",alpha:0,"display":"none",delay:1.7});
 			TweenMax.to(logo_line, 1, {css:{width:"7%",position:'relative',left:"93%"},delay:2.5});
 			TweenMax.to(s_logo_pic_fr, 1, {alpha:1,delay:2.5})
@@ -99,14 +99,11 @@
 			TweenMax.to(tag_trf4, .1, {width:"100%",left:"",delay:3.5});
 			TweenMax.to(logo_line, .0, {width:"100%",height:"",float:"",left:"",delay:3.5});
 			TweenMax.to(logo_line, .3, {left:"40px",delay:4,onComplete:addtagClass});
-			//setTimeout('addtagClass()',3500);
-			//setTimeout('hovertagcontent()',6000);
 		}
 		// TweenMax.from(body_fr, .5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
 		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
 		// var controller = $.superscrollorama();
 		// controller.addTween('#logo_line', TweenMax.fromTo(logo_line, .5, {css:{width: '5%'}},{css:{width: '100%'}},.25,1));
-
 		function addtagClass(){
 			$('.line_fr_l').addClass('line_fr_left_ac');
 			$('.line_1').addClass('line_tr_1');
@@ -161,8 +158,6 @@
 				}
 			});
 		}
-
-
 		Modernizr.load([
 			{
 				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
