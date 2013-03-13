@@ -3,6 +3,7 @@
 	<head>
 	<title></title>
 		<link rel='stylesheet' href='/css/tdc.css' />
+		<link rel='stylesheet' href='/css/animate.css' />
 		<script src="/js/jquery.js"></script>
 		<script src="/js/modernizr.custom.js"></script>
 		<script src="/js/jquery.scrollAnimate.js"></script>
@@ -61,6 +62,10 @@
 				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
 			</div>
 		</div>
+
+
+
+
 	</body>
 	<script>
 
@@ -119,19 +124,19 @@
 					var section = $(this).data('section');
 					switch(section) {
 						case 'city':
-							$('.title_1 > a').addClass('display')
+							$('.title_1_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
 						case 'road':
-							$('.title_2 > a').addClass('display')
+							$('.title_2_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
 						case 'sociaty':
-							$('.title_3 > a').addClass('display')
+							$('.title_3_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
 						case 'hotblood':
-							$('.title_4 > a').addClass('display')
+							$('.title_4_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
 						case 'world':
-							$('.title_5 > a').addClass('display')
+							$('.title_5_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
 					}
 				},
@@ -140,19 +145,19 @@
 					var section = $(this).data('section');
 					switch(section) {
 						case 'city':
-							$('.title_1 > a').removeClass('display')
+							$('.title_1 > a').removeClass('fadeInRight').addClass('fadeOutRight')
 							break;
 						case 'road':
-							$('.title_2 > a').removeClass('display')
+							$('.title_2 > a').removeClass('fadeInRightRight').addClass('fadeOutRight')
 							break;
 						case 'sociaty':
-							$('.title_3 > a').removeClass('display')
+							$('.title_3 > a').removeClass('fadeInRight').addClass('fadeOutRight')
 							break;
 						case 'hotblood':
-							$('.title_4 > a').removeClass('display')
+							$('.title_4 > a').removeClass('fadeInRight').addClass('fadeOutRight')
 							break;
 						case 'world':
-							$('.title_5 > a').removeClass('display')
+							$('.title_5 > a').removeClass('fadeInRight').addClass('fadeOutRight')
 							break;
 					}
 				}
