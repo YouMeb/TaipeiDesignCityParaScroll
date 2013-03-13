@@ -26,7 +26,7 @@ ol, ul {
 
 .line_fr_l{
     width:0%;height:250px;float:left;
-    display: none;
+    
 
 }
 .line_fr_l ul li{
@@ -103,6 +103,12 @@ ol, ul {
 .line_tr_1,.line_tr_2,.line_tr_3,.line_tr_4,.line_tr_5{
     cursor: pointer;z-index: 99;
 
+}
+.title_1_a,.title_2_a,.title_3_a,.title_4_a,.title_5_a{
+    display: none;
+}
+.title_1,.title_2,.title_3,.title_4,.title_5{
+    height: 50px;
 }
 /*.line_tr_1:hover,.line_tr_2:hover,.line_tr_3:hover,.line_tr_4:hover,.line_tr_5:hover{
     
