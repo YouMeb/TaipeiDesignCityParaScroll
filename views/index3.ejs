@@ -40,22 +40,22 @@
 				</ul>
 			</div>
 			<div class="line_fr_left" id ="logo_line">
-			<ul id="#nav">
+			<ul>
 				<a href="#section-1">
-					<li class="line_1 slide" data-section="city">	
+					<li class="line_1" data-section="city">	
 						<img src="/img/tag_fr1.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					
 					</li>
 				</a>
 				<a href="#section-2">
-					<li class="line_2 slide" data-section="road">
+					<li class="line_2" data-section="road">
 						<img src="/img/tag_fr2.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					</li>
 				</a>
 				<a href="#section-3">
-					<li class="line_3 slide" data-section="sociaty">
+					<li class="line_3" data-section="sociaty">
 					
 						<img src="/img/tag_fr3.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
@@ -63,7 +63,7 @@
 					</li>
 				</a>
 				<a href="#section-4">
-					<li class="line_4 slide" id="tag_trf4" data-section="hotblood">
+					<li class="line_4" id="tag_trf4" data-section="hotblood">
 					
 						<img src="/img/tag_fr4.png" class="tag_tr" />
 						<div class="cr_fr"></div>
@@ -71,7 +71,7 @@
 					</li>
 				</a>
 				<a href="#section-5">
-					<li class="line_5 slide" data-section="world">
+					<li class="line_5" data-section="world">
 						<img src="/img/tag_fr5.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					</li>
@@ -83,8 +83,37 @@
 				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
 			</div>
 		</div>
-		<div class="">
-
+		<div id="section-1" class="slide">
+			<h1>不斷提昇的城市</h1>
+			<h3>臺北，不斷提昇的城市</h3>
+			<div class="content">
+				<p>"隨著社會意識抬頭，設計不只是創新，更重要的是解決生活中各式各樣的問題…”</p>
+				<p>在社會設計的氛圍下，臺北市「2016 WDC Taipei」政策將落實「以人為本的設
+計」（Design is People）理念，一方面實踐「社會設計」（Social Design）的
+時代發展潮流，另一方面以「設計是現代公民應有的生活素養」作為推廣目標，
+讓市民廣泛的認識設計，感受設計、享受設計。</p>
+				<p>Adaptive City的核心理念是，城市治理必須勇於創新與追求卓越。面對發展上
+的種種挑戰，唯有不斷求新求變，運用具有前瞻性的創新思維與作法，城市才能
+為市民帶來更美好的生活。我們透過多元社群、數位行動工具、實體的能量引爆
+，動員線上到線下大社群，凝聚了眾人的智慧和參與。</p>
+				<p>
+				Adaptive City是當代城市發展的新典範，是臺北致力於推動實踐的城市願景，
+也是臺北的故事。我們期待，當設計能量從一個一個的城市角落開始發聲，經過
+大家的參與後逐漸累積成「設計實現生活願景」的全民意識，我們將擁有更多新
+想法和力量，將問題化為城市未來的新契機。</p>
+			</div>
+		</div>
+		<div id="section-2" class="slide">
+			2
+		</div>
+		<div id="section-3" class="slide">
+			3
+		</div>
+		<div id="section-4" class="slide">
+			4
+		</div>
+		<div id="section-5" class="slide">
+			5
 		</div>
 		<!-- 主內容開始 -->
 		<!-- <ul class="curtains">
@@ -176,6 +205,7 @@
 			i=0;
 		function al(){   
 		   i++;
+		   $('body').css('overflow', 'hidden');
 		   if(i<101) setTimeout(function(){
 		   	loading_fr.innerHTML=i+'%';
 		   	al();
@@ -186,6 +216,7 @@
 		}
    		function display_after_loading(){
 			setTimeout('',300)
+			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
 			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
 			TweenMax.to(loading_fr, .3, {"display":"none",alpha:1});
 			TweenMax.to(logo_line, 1, {width:"100%",delay:1.5});
@@ -204,6 +235,7 @@
 		// var controller = $.superscrollorama();
 		// controller.addTween('#logo_line', TweenMax.fromTo(logo_line, .5, {css:{width: '5%'}},{css:{width: '100%'}},.25,1));
 		function addtagClass(){
+			$('body').css('overflow', '');
 			$('.line_fr_l').addClass('line_fr_left_ac');
 			$('.line_1').addClass('line_tr_1');
 			$('.line_2').addClass('line_tr_2');
@@ -260,46 +292,36 @@
 			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
 
 		}
-		var deck = new $.scrolldeck();
-		
-		$(document).ready(function(){
-			//$('#nav').localScroll(800);
-			
+
+
+		RepositionNav();
+		$(window).resize(function(){
 			RepositionNav();
+		});	
+		
+		//.parallax(xPosition, adjuster, inertia, outerHeight) options:
+		//xPosition - Horizontal position of the element
+		//adjuster - y position to start from
+		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+		$('#section-1').parallax("50%", 0, 0.1, true);
+		$('#section-2').parallax("50%", 0, 0.1, true);
+		$('#section-3').parallax("50%", 2500, 0.4, true);
+		$('#section-4').parallax("50%", 2750, 0.3, true);
+		$('#section-5').parallax("50%", 2750, 0.3, true);
+
+		var deck = new $.scrolldeck({
+			slides: '.slide',
+			buttons: '#nav a',
 			
-			$(window).resize(function(){
-				RepositionNav();
-			});	
-			
-			//.parallax(xPosition, adjuster, inertia, outerHeight) options:
-			//xPosition - Horizontal position of the element
-			//adjuster - y position to start from
-			//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-			//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-			$('#section-1').parallax("50%", 0, 0.1, true);
-			$('#section-2').parallax("50%", 0, 0.1, true);
-			$('#section-3').parallax("50%", 2500, 0.4, true);
-			$('#section-4').parallax("50%", 2750, 0.3, true);
-			$('#section-5').parallax("50%", 2750, 0.3, true);
-
-			var deck = new $.scrolldeck({
-				slides: '.slide',
-				buttons: '#nav a',
-				easing: 'easeInOutExpo'
-			});
-
-		})
-
-
+		});
 
 
 
 
 
 		function first_scence(){
-
-
-
+					
 
 		}
 		// $('.curtains').curtain({
