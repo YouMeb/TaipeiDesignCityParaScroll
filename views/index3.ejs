@@ -4,13 +4,18 @@
 	<title></title>
 		<link rel='stylesheet' href='/css/tdc.css' />
 		<link rel='stylesheet' href='/css/animate.css' />	
-		<link rel='stylesheet' href='/css/base.css' />
+		<!--<link rel='stylesheet' href='/css/base.css' />-->
 		<script src="/js/jquery.js"></script>
 		<script src="/js/modernizr.custom.js"></script>
 		<script src="/js/jquery.scrollAnimate.js"></script>
 		<script src="/js/TweenMax.js"></script>
-		<script src="/js/jquery.superscrollorama.js"></script>
-		<script src="/js/curtain.js"></script>
+		<!--<script src="/js/jquery.superscrollorama.js"></script>-->
+		<script src="/js/jquery.easing.js"></script>
+		<script src="/js/jquery.scrolldeck.js"></script>
+		<script src="/js/jquery.scrollorama.js"></script>
+		<script src="/js/jquery.scrollTo.js"></script>
+		<script src="/js/jquery.parallax.js"></script>
+		<!--<script src="/js/curtain.js"></script>-->
 	</head>
 	<body>
 		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
@@ -35,22 +40,22 @@
 				</ul>
 			</div>
 			<div class="line_fr_left" id ="logo_line">
-			<ul>
+			<ul id="#nav">
 				<a href="#section-1">
-					<li class="line_1" data-section="city">	
+					<li class="line_1 slide" data-section="city">	
 						<img src="/img/tag_fr1.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					
 					</li>
 				</a>
 				<a href="#section-2">
-					<li class="line_2" data-section="road">
+					<li class="line_2 slide" data-section="road">
 						<img src="/img/tag_fr2.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					</li>
 				</a>
 				<a href="#section-3">
-					<li class="line_3" data-section="sociaty">
+					<li class="line_3 slide" data-section="sociaty">
 					
 						<img src="/img/tag_fr3.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
@@ -58,7 +63,7 @@
 					</li>
 				</a>
 				<a href="#section-4">
-					<li class="line_4" id="tag_trf4" data-section="hotblood">
+					<li class="line_4 slide" id="tag_trf4" data-section="hotblood">
 					
 						<img src="/img/tag_fr4.png" class="tag_tr" />
 						<div class="cr_fr"></div>
@@ -66,7 +71,7 @@
 					</li>
 				</a>
 				<a href="#section-5">
-					<li class="line_5" data-section="world">
+					<li class="line_5 slide" data-section="world">
 						<img src="/img/tag_fr5.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
 					</li>
@@ -79,9 +84,10 @@
 			</div>
 		</div>
 		<div class="">
+
 		</div>
 		<!-- 主內容開始 -->
-		<ul class="curtains">
+		<!-- <ul class="curtains">
 		    <li id="section-1" class="cover">
 		        <header data-fade="550" data-slow-scroll="3">
 		            <h1>curtain.js</h1>
@@ -155,7 +161,7 @@
 		            <a href="#">download on github</a>
 		        </section>
 		    </li>
-		</ul>
+		</ul> -->
 	</body>
 	<script>
 		var logo_line = document.getElementById('logo_line'),
@@ -168,7 +174,6 @@
 			body_fr = $('body'),
 			loading_fr = document.getElementById('loading_fr'),
 			i=0;
-
 		function al(){   
 		   i++;
 		   if(i<101) setTimeout(function(){
@@ -179,7 +184,6 @@
 		   	}
 		   },10);
 		}
-
    		function display_after_loading(){
 			setTimeout('',300)
 			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
@@ -256,6 +260,41 @@
 			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
 
 		}
+		var deck = new $.scrolldeck();
+		
+		$(document).ready(function(){
+			//$('#nav').localScroll(800);
+			
+			RepositionNav();
+			
+			$(window).resize(function(){
+				RepositionNav();
+			});	
+			
+			//.parallax(xPosition, adjuster, inertia, outerHeight) options:
+			//xPosition - Horizontal position of the element
+			//adjuster - y position to start from
+			//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+			//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+			$('#section-1').parallax("50%", 0, 0.1, true);
+			$('#section-2').parallax("50%", 0, 0.1, true);
+			$('#section-3').parallax("50%", 2500, 0.4, true);
+			$('#section-4').parallax("50%", 2750, 0.3, true);
+			$('#section-5').parallax("50%", 2750, 0.3, true);
+
+			var deck = new $.scrolldeck({
+				slides: '.slide',
+				buttons: '#nav a',
+				easing: 'easeInOutExpo'
+			});
+
+		})
+
+
+
+
+
+
 
 		function first_scence(){
 
@@ -263,14 +302,14 @@
 
 
 		}
-		$('.curtains').curtain({
-			scrollSpeed: 300,
-			controls: '#menu',
-			curtainLinks: '.curtain-links',
-			nextSlide: function(){
-			console.log("ok");
-			}
-		});
+		// $('.curtains').curtain({
+		// 	scrollSpeed: 300,
+		// 	controls: '#menu',
+		// 	curtainLinks: '.curtain-links',
+		// 	nextSlide: function(){
+		// 	console.log("ok");
+		// 	}
+		// });
 		Modernizr.load([
 			{
 				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
