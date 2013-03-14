@@ -3,9 +3,7 @@
 	<head>
 	<title></title>
 		<link rel='stylesheet' href='/css/tdc.css' />
-		<link rel='stylesheet' href='/css/animate.css' />
-				<link rel='stylesheet' href='/css/style.css' />
-		<link rel='stylesheet' href='/css/curtain.css' />
+		<link rel='stylesheet' href='/css/animate.css' />	
 		<link rel='stylesheet' href='/css/base.css' />
 		<script src="/js/jquery.js"></script>
 		<script src="/js/modernizr.custom.js"></script>
@@ -38,26 +36,46 @@
 			</div>
 			<div class="line_fr_left" id ="logo_line">
 			<ul>
+				<a href="#section-1">
 				<li class="line_1" data-section="city">
-					<img src="/img/tag_fr1.png" class="tag_tr"/>
-					<div class="cr_fr"></div>
+				
+						<img src="/img/tag_fr1.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					
 				</li>
+				</a>
+				<a href="#section-2">
 				<li class="line_2" data-section="road">
-					<img src="/img/tag_fr2.png" class="tag_tr"/>
-					<div class="cr_fr"></div>
+					
+						<img src="/img/tag_fr2.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					
 				</li>
+				</a>
+				<a href="#section-3">
 				<li class="line_3" data-section="sociaty">
-					<img src="/img/tag_fr3.png" class="tag_tr"/>
-					<div class="cr_fr"></div>
+					
+						<img src="/img/tag_fr3.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					
 				</li>
+				</a>
+				<a href="#section-4">
 				<li class="line_4" id="tag_trf4" data-section="hotblood">
-					<img src="/img/tag_fr4.png" class="tag_tr" />
-					<div class="cr_fr"></div>
+					
+						<img src="/img/tag_fr4.png" class="tag_tr" />
+						<div class="cr_fr"></div>
+					
 				</li>
+				</a>
+				<a href="#section-5">
 				<li class="line_5" data-section="world">
-					<img src="/img/tag_fr5.png" class="tag_tr"/>
-					<div class="cr_fr"></div>
+					
+						<img src="/img/tag_fr5.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					
 				</li>
+				</a>
 			</ul>
 			</div>
 			<div class="line_fr_right">
@@ -65,27 +83,22 @@
 				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
 			</div>
 		</div>
+		<div class="">
+		</div>
+		<!-- 主內容開始 -->
 		<ul class="curtains">
-		    <!--<li id="section-1" class="cover" data-parallax-background="-.05">-->
 		    <li id="section-1" class="cover">
+
 		        <header data-fade="550" data-slow-scroll="3">
+
 		            <h1>curtain.js</h1>
 		            <h2>an easy to use scrolling plugin</h2>
 		            <a href="#section-3">a</a>
-		            <div style="position:relative;background:red;width:200px;height:40px;z-index:9999" class="yo"></div>
-		            <div style="position:relative;background:blue;width:200px;height:40px;z-index:9999" class="yo1"></div>
-		            <div id="examples-1">
-						<div id="fade-it" style="background:red;width:100px;height:50px">Fade It</div>
-						<div id="fade-it1" style="background:blue;width:100px;height:50px"></div>
-						<h2 id="fly-it">Fly It</h2>
-						<h2 id="spin-it">Spin It</h2>
-						<h2 id="scale-it">Scale It</h2>
-						<h2 id="smush-it">Smush It</h2>
-					</div>
 		        </header>
 		    </li>
 		    <li id="section-2">
 		        <article>
+		        	<div style="width:100%;height:3000px;background:#666;"></div>
 		            <h4>What's Curtain.js?</h4>
 		            <hr>
 		            <p>This plugin allows you to create a web page with multiple fixed panels that unroll
@@ -150,13 +163,8 @@
 		        </section>
 		    </li>
 		</ul>
-
-
-
-
 	</body>
 	<script>
-
 		var logo_line = document.getElementById('logo_line'),
 			line_fr = document.getElementById('line_fr'),
 			logo_pic_fr = document.getElementById('logo_pic_fr'),
@@ -192,6 +200,7 @@
 			TweenMax.to(tag_trf4, .1, {width:"100%",left:"",delay:3.5});
 			TweenMax.to(logo_line, .0, {width:"100%",height:"",float:"",left:"",delay:3.5});
 			TweenMax.to(logo_line, .3, {left:"40px",delay:4,onComplete:addtagClass});
+
 		}
 		// TweenMax.from(body_fr, .5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
 		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
@@ -250,6 +259,16 @@
 					}
 				}
 			});
+			var  $cur = $('.curtains');
+			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
+
+		}
+
+		function first_scence(){
+
+
+
+
 		}
 		$('.curtains').curtain({
 			scrollSpeed: 300,

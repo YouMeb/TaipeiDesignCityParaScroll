@@ -403,6 +403,7 @@
                         e.preventDefault();
                         self.scrollToPosition('down');
                     });
+                    
                 }
             }
 
