@@ -121,5 +121,26 @@ ol, ul {
     display: block
 }
 #section-1{
-    height: 700px;
+    width: 100%;
+    z-index: 9
+}
+#section-2{
+    width: 100%;
+    z-index: 8
+}
+#section-3{
+    width: 100%;
+    z-index: 7
+}
+#section-4{
+    width: 100%;
+    z-index: 6
+}
+#section-5{
+    width: 100%;
+    z-index: 5
+}
+.content,.content_title{
+    width: 500px;
+    margin: auto;
 }
