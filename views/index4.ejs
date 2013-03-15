@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title></title>
+		<link rel='stylesheet' href='/css/tdc.css' />
+		<link rel='stylesheet' href='/css/animate.css' />	
+	</head>
+	<body>
+		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
+		<div class="line_fr" id="line_fr">
+			<div class="line_fr_l" id="line_fr_l">
+				<ul>
+					<li class="title_1">
+						<a class="title_1_a">不斷提昇的城市</a>
+					</li>
+					<li class="title_2">
+						<a class="title_2_a">走過的路</a>
+					</li>
+					<li class="title_3">
+						<a class="title_3_a">社群動起來</a>
+					</li>
+					<li class="title_4">
+						<a class="title_4_a">熱血正燃燒</a>
+					</li>
+					<li class="title_5">
+						<a class="title_5_a">被世界看見</a>
+					</li>
+				</ul>
+			</div>
+			<div class="line_fr_left" id ="logo_line">
+			<ul id="nav">
+				<a href="#section-1">
+					<li class="line_1" data-section="city">	
+						<img src="/img/tag_fr1.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-2">
+					<li class="line_2" data-section="road">
+						<img src="/img/tag_fr2.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-3">
+					<li class="line_3" data-section="sociaty">
+						<img src="/img/tag_fr3.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-4">
+					<li class="line_4" id="tag_trf4" data-section="hotblood">
+						<img src="/img/tag_fr4.png" class="tag_tr" />
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-5">
+					<li class="line_5" data-section="world">
+						<img src="/img/tag_fr5.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+			</ul>
+			</div>
+			<div class="line_fr_right">
+				<div id="loading_fr"></div>
+				<img src="/img/logo.png" class="logo_img" id="logo_pic_fr"/>
+			</div>
+		</div>
+
+		
+	</body>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/modernizr.custom.js"></script>
+	<script src="/js/jquery.scrollAnimate.js"></script>
+	<script src="/js/TweenMax.js"></script>
+	<script src="/js/jquery.easing.js"></script>
+	<script src="/js/jquery.scrolldeck.js"></script>
+	<script src="/js/jquery.scrollorama.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
+	<script src="/js/jquery.parallax.js"></script>
+	<script src="/js/jquery.inview.js"></script>
+	<script>
+
+		var logo_line = document.getElementById('logo_line'),
+			line_fr = document.getElementById('line_fr'),
+			logo_pic_fr = document.getElementById('logo_pic_fr'),
+			line_fr_l = document.getElementById('line_fr_l'),
+			s_logo_pic_fr = document.getElementById('s_logo_pic_fr'),
+			tag_trf4 = document.getElementById('tag_trf4'),
+			line_fr_right = document.getElementById('line_fr_right'),
+			body_fr = $('body'),
+			loading_fr = document.getElementById('loading_fr'),
+			i=0,
+			wHeight = $(window).height(); 
+
+		function al(){   
+		   i++;
+		   $('body').css('overflow', 'hidden');
+		   if(i<101) setTimeout(function(){
+				loading_fr.innerHTML=i+'%';
+				al();
+				if (i == 100){
+					display_after_loading();
+				}
+		   },10);
+		}
+   		function display_after_loading(){
+			setTimeout('',300)
+			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
+			TweenMax.to(logo_pic_fr, .5, {alpha:1,delay:0.3});
+			TweenMax.to(loading_fr, .3, {"display":"none",alpha:1});
+			TweenMax.to(logo_line, 1, {width:"100%",delay:1.5});
+			TweenMax.to(tag_trf4, .1, {width:"100%",left:"0%",delay:1.5});
+			TweenMax.to(logo_pic_fr, .3, {"margin-left":"10%",alpha:0,"display":"none",delay:1.7});
+			TweenMax.to(logo_line, 1, {css:{width:"7%",position:'relative',left:"93%"},delay:2.5});
+			TweenMax.to(s_logo_pic_fr, 1, {alpha:1,delay:2.5})
+			TweenMax.to(line_fr, .0, {width:"7%",position:'fixed',right:0,"z-index":"99",delay:3.5});
+			TweenMax.to(tag_trf4, .1, {width:"100%",left:"",delay:3.5});
+			TweenMax.to(logo_line, .0, {width:"100%",height:"",float:"",left:"",delay:3.5});
+			TweenMax.to(logo_line, .3, {left:"40px",delay:4,onComplete:addtagClass});
+
+		}
+		// TweenMax.from(body_fr, .5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
+		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
+		// var controller = $.superscrollorama();
+		// controller.addTween('#logo_line', TweenMax.fromTo(logo_line, .5, {css:{width: '5%'}},{css:{width: '100%'}},.25,1));
+		function addtagClass(){
+			$('body').css('overflow', '');
+			$('.line_fr_l').addClass('line_fr_left_ac');
+			$('.line_1').addClass('line_tr_1');
+			$('.line_2').addClass('line_tr_2');
+			$('.line_3').addClass('line_tr_3');
+			$('.line_4').addClass('line_tr_4');
+			$('.line_5').addClass('line_tr_5');
+			var $hovertag = $('.line_fr_left').find('li');
+			$hovertag.bind({
+				mouseenter: function(e){
+					TweenMax.to($(this), .4, {position:'relative',right:'40px'});
+					//console.log(e);
+					var section = $(this).data('section');
+					switch(section) {
+						case 'city':
+							$('.title_1_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
+							break;
+						case 'road':
+							$('.title_2_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
+							break;
+						case 'sociaty':
+							$('.title_3_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
+							break;
+						case 'hotblood':
+							$('.title_4_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
+							break;
+						case 'world':
+							$('.title_5_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
+							break;
+					}
+				},
+				mouseleave: function(){
+					TweenMax.to($(this), .4, {position:'relative',right:'0px'})
+					var section = $(this).data('section');
+					switch(section) {
+						case 'city':
+							$('.title_1 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
+							break;
+						case 'road':
+							$('.title_2 > a').removeClass('fadeInRightRight display').addClass('fadeOutRight')
+							break;
+						case 'sociaty':
+							$('.title_3 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
+							break;
+						case 'hotblood':
+							$('.title_4 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
+							break;
+						case 'world':
+							$('.title_5 > a').removeClass('fadeInRight display').addClass('fadeOutRight')
+							break;
+					}
+				}
+			});
+			var  $cur = $('.curtains');
+			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
+
+		}
+		function adjustsectionheight(){
+			$('#section-0').css('height',wHeight);
+			$('#section-1').css('height',wHeight);
+			$('#section-2').css('height',wHeight);
+			$('#section-3').css('height',wHeight);
+			$('#section-4').css('height',wHeight);
+			$('#section-5').css('height',wHeight);
+		}
+		adjustsectionheight();
+		RepositionNav();
+		$(window).resize(function(){
+			RepositionNav();
+			adjustsectionheight()
+		});	
+
+		//.parallax(xPosition, adjuster, inertia, outerHeight) options:
+		//xPosition - Horizontal position of the element
+		//adjuster - y position to start from
+		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+		// $('#section-1').parallax("50%", 0, 0.1, true);
+		// $('#section-2').parallax("50%", 0, 0.1, true);
+		// $('#section-3').parallax("50%", 2500, 0.4, true);
+		// $('#section-4').parallax("50%", 2750, 0.3, true);
+		// $('#section-5').parallax("50%", 2750, 0.3, true);
+		
+		var $nav = $('#nav').find('li');
+		$('.insection-1').bind('inview', function (event, visible) {
+			if (visible == true) {
+				$('#section-1').css('top','0')
+				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+				TweenMax.to($('.line_1'), .4, {position:'relative',right:'40px'});
+			} else {
+				TweenMax.to($('.line_1'), .4, {position:'relative',right:'0px'});
+			}
+		});
+		$('#section-2').bind('inview', function (event, visible) {
+			if (visible == true) {
+				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+				TweenMax.to($('.line_2'), .4, {position:'relative',right:'40px'});
+			} else {
+				TweenMax.to($('.line_2'), .4, {position:'relative',right:'0px'});
+			}
+		});
+		$('#section-3').bind('inview', function (event, visible) {
+			if (visible == true) {
+				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+				TweenMax.to($('.line_3'), .4, {position:'relative',right:'40px'});
+			} else {
+				TweenMax.to($('.line_3'), .4, {position:'relative',right:'0px'});
+			}
+		});
+		$('#section-4').bind('inview', function (event, visible) {
+			if (visible == true) {
+				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+				TweenMax.to($('.line_4'), .4, {position:'relative',right:'40px'});
+			} else {
+				TweenMax.to($('.line_4'), .4, {position:'relative',right:'0px'});
+			}
+		});
+		$('#section-5').bind('inview', function (event, visible) {
+			if (visible == true) {
+				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+				TweenMax.to($('.line_5'), .4, {position:'relative',right:'40px'});
+			} else {
+				TweenMax.to($('.line_5'), .4, {position:'relative',right:'0px'});
+			}
+		});
+
+
+		//點選nav
+		var deck = new $.scrolldeck({
+			slides: '.slide',
+			buttons: '#nav a',
+		});
+		
+		//第一場景
+		function first_scence(){	
+		}
+		//讀取
+		Modernizr.load([
+			{
+				test : Modernizr.fontface && Modernizr.canvas && Modernizr.cssgradients,
+				both : [ '/js/TweenMax.js' ,'/js/jquery.scrollAnimate.js','/js/jquery.js'],
+				complete : function () {
+					al();
+				}
+			}
+		]);
+	</script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</html>
