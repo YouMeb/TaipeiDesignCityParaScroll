@@ -29,6 +29,36 @@
 			</div>
 			<div class="line_fr_left" id ="logo_line">
 			<ul id="nav">
+				<a href="#section-1" class="sectionfade">
+					<li class="line_1" data-section="city">	
+						<img src="/img/tag_fr1.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-2" class="sectionfade">
+					<li class="line_2" data-section="road">
+						<img src="/img/tag_fr2.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-3" class="sectionfade">
+					<li class="line_3" data-section="sociaty">
+						<img src="/img/tag_fr3.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-4" class="sectionfade">
+					<li class="line_4" id="tag_trf4" data-section="hotblood">
+						<img src="/img/tag_fr4.png" class="tag_tr" />
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-5" class="sectionfade">
+					<li class="line_5" data-section="world">
+						<img src="/img/tag_fr5.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
 				<a href="#section-1">
 					<li class="line_1" data-section="city">	
 						<img src="/img/tag_fr1.png" class="tag_tr"/>
@@ -54,6 +84,36 @@
 					</li>
 				</a>
 				<a href="#section-5">
+					<li class="line_5" data-section="world">
+						<img src="/img/tag_fr5.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-1" class="sectionfade">
+					<li class="line_1" data-section="city">	
+						<img src="/img/tag_fr1.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-2" class="sectionfade">
+					<li class="line_2" data-section="road">
+						<img src="/img/tag_fr2.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-3" class="sectionfade">
+					<li class="line_3" data-section="sociaty">
+						<img src="/img/tag_fr3.png" class="tag_tr"/>
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-4" class="sectionfade">
+					<li class="line_4" id="tag_trf4" data-section="hotblood">
+						<img src="/img/tag_fr4.png" class="tag_tr" />
+						<div class="cr_fr"></div>
+					</li>
+				</a>
+				<a href="#section-5" class="sectionfade">
 					<li class="line_5" data-section="world">
 						<img src="/img/tag_fr5.png" class="tag_tr"/>
 						<div class="cr_fr"></div>
@@ -127,7 +187,7 @@
 		<div id="section-4" class="slide">
 			<div class="section-4fr">
 				<div class="bk4_fr">
-					<img src="/img/man1.png" class="man1 m_1"/>
+					<!-- <img src="/img/man1.png" class="man1 m_1"/>
 					<img src="/img/man2.png" class="man2 m_2"/>
 					<img src="/img/man3.png" class="man3 m_3"/>
 					<img src="/img/man4.png" class="man4 m_4"/>
@@ -240,8 +300,7 @@
 					<img src="/img/man3.png" class="man3 m_111"/>
 					<img src="/img/man4.png" class="man4 m_112"/>
 					<img src="/img/man1.png" class="man1 m_113"/>
-					<img src="/img/man2.png" class="man2 m_114"/>
-
+					<img src="/img/man2.png" class="man2 m_114"/> -->
 				</div>
 				<div class="content4_title">
 					<div class="content_title ">
@@ -277,7 +336,6 @@
 	<script src="/js/jquery.parallax.js"></script>
 	<script src="/js/jquery.inview.js"></script>
 	<script>
-
 		var logo_line = document.getElementById('logo_line'),
 			line_fr = document.getElementById('line_fr'),
 			logo_pic_fr = document.getElementById('logo_pic_fr'),
@@ -315,7 +373,6 @@
 			TweenMax.to(tag_trf4, .1, {width:"100%",left:"",delay:3.5});
 			TweenMax.to(logo_line, .0, {width:"100%",height:"",float:"",left:"",delay:3.5});
 			TweenMax.to(logo_line, .3, {left:"40px",delay:4,onComplete:addtagClass});
-
 		}
 		// TweenMax.from(body_fr,.5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
 		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
@@ -330,12 +387,32 @@
 			$('.line_4').addClass('line_tr_4');
 			$('.line_5').addClass('line_tr_5');
 			var $hovertag = $('.line_fr_left').find('li');
+			var nowstate =1;
 			$hovertag.bind({
-				mouseenter: function(e){
+				mousedown: function (e){
+
+					console.log($(this)[0].classList[0].charAt(5));
+					var $wantstate = $(this)[0].classList[0].charAt(5) ;
+					var number ; 
+					number = $wantstate - nowstate;
+					console.log('number:'+number);
+					if (number >= 3){
+
+					}
+					else if (number< 2){
+
+					}
+					nowstate = $wantstate ;
+					// console.log($wantstate);
+					// console.log('nowstate:'+nowstate);
+				},
+				mouseover: function(e){
 					TweenMax.to($(this), .4, {position:'relative',right:'40px'});
 					//console.log(e);
 					var section = $(this).data('section');
+					//console.log($(thi);
 					switch(section) {
+
 						case 'city':
 							$('.title_1_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
@@ -377,7 +454,6 @@
 			});
 			var  $cur = $('.curtains');
 			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
-
 		}
 		function adjustsectionheight(){
 			$('#section-0').css('height',wHeight);
@@ -393,10 +469,6 @@
 			RepositionNav();
 			adjustsectionheight()
 		});	
-
-
-
-
 		//.parallax(xPosition, adjuster, inertia, outerHeight) options:
 		//xPosition - Horizontal position of the element
 		//adjuster - y position to start from
@@ -407,7 +479,6 @@
 		// $('#section-3').parallax("50%", 2500, 0.4, true);
 		// $('#section-4').parallax("50%", 2750, 0.3, true);
 		// $('#section-5').parallax("50%", 2750, 0.3, true);
-		
 		var $nav = $('#nav').find('li');
 		$('.insection-1').bind('inview', function (event, visible) {
 			if (visible == true) {
@@ -450,14 +521,11 @@
 				TweenMax.to($('.line_5'), .4, {position:'relative',right:'0px'});
 			}
 		});
-
-
 		//點選nav
 		var deck = new $.scrolldeck({
 			slides: '.slide',
 			buttons: '#nav a',
 		});
-		
 		//第一場景
 		function first_scence(){	
 		}
@@ -471,585 +539,582 @@
 				}
 			}
 		]);
-		var taipeiarr = [{
-			    top:'140px',
-			    left: '70%'
-			}
-			,{
-			    top:'140px',
-			    left: '70%'
-			}
-			,{
-			    top:'160px',
-			    left: '65%'
-			}
-			,{
-			    top:'165px',
-			    left: '66%'
-			}
-			,{
-			    top:'170px',
-			    left: '62%'
-			}
-			,{
-			    top:'168px',
-			    left: '63%'
-			}
-			,{
-			    top:'167px',
-			    left: '54%'
-			}
-			,{
-			    top:'171px',
-			    left: '50%'
-			}
-			,{
-			    top:'196px',
-			    left: '49%'
-			}
-			,{
-			    top:'190px',
-			    left: '44%'
-			}
-			,{
-			    top:'200px',
-			    left: '40%'
-			}
-			,{
-			    top:'220px',
-			    left: '36%'
-			}
-			,{
-			    top:'200px',
-			    left: '48%'
-			}
-			,{
-			    top:'190px',
-			    left: '40%'
-			}
-			,{
-			    top:'190px',
-			    left: '40%'
-			}
-			,{
-			    top:'230px',
-			    left: '30%'
-			}
-			,{
-			    top:'230px',
-			    left: '30%'
-			}
-			,{
-			    top:'200px',
-			    left: '35%'
-			}
-			,{
-			    top:'260px',
-			    left: '17%'
-			}
-			,{
-			    top:'260px',
-			    left: '18%'
-			}
-			,{
-			    top:'260px',
-			    left: '20%'
-			}
-			,{
-			    top:'260px',
-			    left: '30%'
-			}
-			,{
-			    top:'250px',
-			    left: '25%'
-			}
-			,{
-			    top:'260px',
-			    left: '20%'
-			}
-			,{
-			    top:'280px',
-			    left: '15%'
-			}
-			,{
-			    top:'290px',
-			    left: '-1%'
-			}
-			,{
-			    top:'290px',
-			    left: '8%'
-			}
-			,{
-			    top:'290px',
-			    left: '3%'
-			}
-			,{
-			    top:'290px',
-			    left: '10%'
-			}
-			,{
-			    top:'280px',
-			    left: '10%'
-			}
-			,{
-			    top:'290px',
-			    left: '-7%'
-			}
-			,{
-			    top:'300px',
-			    left: '-12%'
-			}
-			,{
-			    top:'300px',
-			    left: '-2%'
-			}
-			,{
-			    top:'320px',
-			    left: '-7%'
-			}
-			,{
-			    top:'330px',
-			    left: '-4%'
-			}
-			,{
-			    top:'310px',
-			    left: '-4%'
-			}
-			,{
-			    top:'320px',
-			    left: '-6%'
-			}
-			,{
-			    top:'350px',
-			    left: '-9%'
-			}
-			,{
-			    top:'340px',
-			    left: '-20%'
-			}
-			,{
-			    top:'330px',
-			    left: '-24%'
-			}
-			,{
-			    top:'320px',
-			    left: '-30%'
-			}
-			,{
-			    top:'310px',
-			    left: '-40%'
-			}
-			,{
-			    top:'350px',
-			    left: '-40%'
-			}
-			,{
-			    top:'250px',
-			    left: '70%'
-			}
-			,{
-			    top:'260px',
-			    left: '65%'
-			}
-			,{
-			    top:'260px',
-			    left: '64.5%'
-			}
-			,{
-			    top:'270px',
-			    left: '64%'
-			}
-			,{
-			    top:'260px',
-			    left: '50%'
-			}
-			,{
-			    top:'250px',
-			    left: '44%'
-			}
-			,{
-			    top:'280px',
-			    left: '46%'
-			}
-			,{
-			    top:'270px',
-			    left: '41.5%'
-			}
-			,{
-			    top:'290px',
-			    left: '43%'
-			}
-			,{
-			    top:'290px',
-			    left: '43%'
-			}
-			,{
-			    top:'300px',
-			    left: '44%'
-			}
-			,{
-			    top:'310px',
-			    left: '43%'
-			}
-			,{
-			    top:'310px',
-			    left: '43%'
-			}
-			,{
-			    top:'310px',
-			    left: '43%'
-			}
-			,{
-			    top:'315px',
-			    left: '43%'
-			}
-			,{
-			    top:'340px',
-			    left: '40%'
-			}
-			,{
-			    top:'290px',
-			    left: '41%'
-			}
-			,{
-			    top:'310px',
-			    left: '38%'
-			}
-			,{
-			    top:'370px',
-			    left: '36%'
-			}
-			,{
-			    top:'320px',
-			    left: '16%'
-			}
-			,{
-			    top:'320px',
-			    left: '16%'
-			}
-			,{
-			    top:'340px',
-			    left: '16%'
-			}
-			,{
-			    top:'330px',
-			    left: '16%'
-			}
-			,{
-			    top:'350px',
-			    left: '6.5%'
-			}
-			,{
-			    top:'360px',
-			    left:'6%'
-			}
-			,{
-			    top:'370px',
-			    left: '8%'
-			}
-			,{
-			    top:'360px',
-			    left: '8%'
-			}
-			,{
-			    top:'375px',
-			    left: '8%'
-			}
-			,{
-			    top:'385px',
-			    left: '8%'
-			}
-			,{
-			    top:'385px',
-			    left: '8%'
-			}
-			,{
-			    top:'385px',
-			    left: '8%'
-			}
-			,{
-			    top:'385px',
-			    left: '8%'
-			}
-			,{
-			    top:'395px',
-			    left: '8%'
-			}
-			,{
-			    top:'385px',
-			    left: '-21%'
-			}
-			,{
-			    top:'405px',
-			    left: '-21%'
-			}
-			,{
-			    top:'385px',
-			    left: '-21%'
-			}
-			,{
-			    top:'395px',
-			    left: '-21%'
-			}
-			,{
-			    top:'385px',
-			    left: '-21%'
-			}
-			,{
-			    top:'385px',
-			    left: '-21%'
-			}
-			,{
-			    top:'385px',
-			    left: '-21%'
-			}
-			,{
-			    top:'400px',
-			    left: '-10%'
-			}
-			,{
-			    top:'380px',
-			    left: '-6%'
-			}
-			,{
-			    top:'355px',
-			    left: '64%'
-			}
-			,{
-			    top:'355px',
-			    left: '64%'
-			}
-			,{
-			    top:'345px',
-			    left: '64%'
-			}
-			,{
-			    top:'325px',
-			    left: '64%'
-			}
-			,{
-			    top:'335px',
-			    left: '64%'
-			}
-			,{
-			    top:'345px',
-			    left: '64%'
-			}
-			,{
-			    top:'375px',
-			    left: '52%'
-			}
-			,{
-			    top:'375px',
-			    left: '52%'
-			}
-			,{
-			    top:'375px',
-			    left: '52%'
-			}
-			,{
-			    top:'375px',
-			    left: '52%'
-			}
-			,{
-			    top:'375px',
-			    left: '52%'
-			}
-			,{
-			    top:'395px',
-			    left: '45%'
-			}
-			,{
-			    top:'395px',
-			    left: '39%'
-			}
-			,{
-			    top:'395px',
-			    left: '43%'
-			}
-			,{
-			    top:'415px',
-			    left: '38%'
-			}
-			,{
-			    top:'50px',
-			    left: '32%'
-			}
-			,{
-			    top:'50px',
-			    left: '32%'
-			}
-			,{
-			    top:'400px',
-			    left: '27%'
-			}
-			,{
-			    top:'400px',
-			    left: '27%'
-			}
-			,{
-			    top:'400px',
-			    left: '27%'
-			}
-			,{
-			    top:'400px',
-			    left: '27%'
-			}
-			,{
-			    top:'430px',
-			    left: '20%'
-			}
-			,{
-			    top:'430px',
-			    left: '20%'
-			}
-			,{
-			    top:'450px',
-			    left: '17%'
-			}
-			,{
-			    top:'450px',
-			    left: '17%'
-			}
-			,{
-			    top:'470px',
-			    left: '14%'
-			}
-			,{
-			    top:'470px',
-			    left: '14%'
-			}
-			,{
-			    top:'130px',
-			    left: '15%'
-			}
-			,{
-			    top:'490px',
-			    left: '10%'
-			}];
-
-			console.log(taipeiarr[0].top);
-		TweenMax.to($('.m_1'), 6.5, {top:taipeiarr[0].top,left:taipeiarr[0].left});
-		TweenMax.to($('.m_2'), 6.5, {top:taipeiarr[1].top,left:taipeiarr[1].left});
-		TweenMax.to($('.m_3'), 6.5, {top:taipeiarr[2].top,left:taipeiarr[2].left});
-		TweenMax.to($('.m_4'), 6.5, {top:taipeiarr[3].top,left:taipeiarr[3].left});
-		TweenMax.to($('.m_5'), 6.5, {top:taipeiarr[4].top,left:taipeiarr[4].left});
-		TweenMax.to($('.m_6'), 6.5, {top:taipeiarr[5].top,left:taipeiarr[5].left});
-		TweenMax.to($('.m_7'), 6.5, {top:taipeiarr[6].top,left:taipeiarr[6].left});
-		TweenMax.to($('.m_8'), 6.5, {top:taipeiarr[7].top,left:taipeiarr[7].left});
-		TweenMax.to($('.m_9'), 6.5, {top:taipeiarr[8].top,left:taipeiarr[8].left});
-		TweenMax.to($('.m_10'), 6.5, {top:taipeiarr[9].top,left:taipeiarr[9].left});
-		TweenMax.to($('.m_11'), 6.5, {top:taipeiarr[10].top,left:taipeiarr[10].left});
-		TweenMax.to($('.m_12'), 6.5, {top:taipeiarr[11].top,left:taipeiarr[11].left});
-		TweenMax.to($('.m_13'), 6.5, {top:taipeiarr[12].top,left:taipeiarr[12].left});
-		TweenMax.to($('.m_14'), 6.5, {top:taipeiarr[13].top,left:taipeiarr[13].left});
-		TweenMax.to($('.m_15'), 6.5, {top:taipeiarr[14].top,left:taipeiarr[14].left});
-		TweenMax.to($('.m_16'), 6.5, {top:taipeiarr[15].top,left:taipeiarr[15].left});
-		TweenMax.to($('.m_17'), 6.5, {top:taipeiarr[16].top,left:taipeiarr[16].left});
-		TweenMax.to($('.m_18'), 6.5, {top:taipeiarr[17].top,left:taipeiarr[17].left});
-		TweenMax.to($('.m_19'), 6.5, {top:taipeiarr[18].top,left:taipeiarr[18].left});
-		TweenMax.to($('.m_20'), 6.5, {top:taipeiarr[19].top,left:taipeiarr[19].left});
-		TweenMax.to($('.m_21'), 6.5, {top:taipeiarr[20].top,left:taipeiarr[20].left});
-		TweenMax.to($('.m_22'), 6.5, {top:taipeiarr[21].top,left:taipeiarr[21].left});
-		TweenMax.to($('.m_23'), 6.5, {top:taipeiarr[22].top,left:taipeiarr[22].left});
-		TweenMax.to($('.m_24'), 6.5, {top:taipeiarr[23].top,left:taipeiarr[23].left});
-		TweenMax.to($('.m_25'), 6.5, {top:taipeiarr[24].top,left:taipeiarr[24].left});
-		TweenMax.to($('.m_26'), 6.5, {top:taipeiarr[25].top,left:taipeiarr[25].left});
-		TweenMax.to($('.m_27'), 6.5, {top:taipeiarr[26].top,left:taipeiarr[26].left});
-		TweenMax.to($('.m_28'), 6.5, {top:taipeiarr[27].top,left:taipeiarr[27].left});
-		TweenMax.to($('.m_29'), 6.5, {top:taipeiarr[28].top,left:taipeiarr[28].left});
-		TweenMax.to($('.m_30'), 6.5, {top:taipeiarr[29].top,left:taipeiarr[29].left});
-		TweenMax.to($('.m_31'), 6.5, {top:taipeiarr[30].top,left:taipeiarr[30].left});
-		TweenMax.to($('.m_32'), 6.5, {top:taipeiarr[31].top,left:taipeiarr[31].left});
-		TweenMax.to($('.m_33'), 6.5, {top:taipeiarr[32].top,left:taipeiarr[32].left});
-		TweenMax.to($('.m_34'), 6.5, {top:taipeiarr[33].top,left:taipeiarr[33].left});
-		TweenMax.to($('.m_35'), 6.5, {top:taipeiarr[34].top,left:taipeiarr[34].left});
-		TweenMax.to($('.m_36'), 6.5, {top:taipeiarr[35].top,left:taipeiarr[35].left});
-		TweenMax.to($('.m_37'), 6.5, {top:taipeiarr[36].top,left:taipeiarr[36].left});
-		TweenMax.to($('.m_38'), 6.5, {top:taipeiarr[37].top,left:taipeiarr[37].left});
-		TweenMax.to($('.m_39'), 6.5, {top:taipeiarr[38].top,left:taipeiarr[38].left});
-		TweenMax.to($('.m_40'), 6.5, {top:taipeiarr[39].top,left:taipeiarr[39].left});
-		TweenMax.to($('.m_41'), 6.5, {top:taipeiarr[40].top,left:taipeiarr[40].left});
-		TweenMax.to($('.m_42'), 6.5, {top:taipeiarr[41].top,left:taipeiarr[41].left});
-		TweenMax.to($('.m_43'), 6.5, {top:taipeiarr[42].top,left:taipeiarr[42].left});
-		TweenMax.to($('.m_44'), 6.5, {top:taipeiarr[43].top,left:taipeiarr[43].left});
-		TweenMax.to($('.m_45'), 6.5, {top:taipeiarr[44].top,left:taipeiarr[44].left});
-		TweenMax.to($('.m_46'), 6.5, {top:taipeiarr[45].top,left:taipeiarr[45].left});
-		TweenMax.to($('.m_47'), 6.5, {top:taipeiarr[46].top,left:taipeiarr[46].left});
-		TweenMax.to($('.m_48'), 6.5, {top:taipeiarr[47].top,left:taipeiarr[47].left});
-		TweenMax.to($('.m_49'), 6.5, {top:taipeiarr[48].top,left:taipeiarr[48].left});
-		TweenMax.to($('.m_50'), 6.5, {top:taipeiarr[49].top,left:taipeiarr[49].left});
-		TweenMax.to($('.m_51'), 6.5, {top:taipeiarr[50].top,left:taipeiarr[50].left});
-		TweenMax.to($('.m_52'), 6.5, {top:taipeiarr[51].top,left:taipeiarr[51].left});
-		TweenMax.to($('.m_53'), 6.5, {top:taipeiarr[52].top,left:taipeiarr[52].left});
-		TweenMax.to($('.m_54'), 6.5, {top:taipeiarr[53].top,left:taipeiarr[53].left});
-		TweenMax.to($('.m_55'), 6.5, {top:taipeiarr[54].top,left:taipeiarr[54].left});
-		TweenMax.to($('.m_56'), 6.5, {top:taipeiarr[55].top,left:taipeiarr[55].left});
-		TweenMax.to($('.m_57'), 6.5, {top:taipeiarr[56].top,left:taipeiarr[56].left});
-		TweenMax.to($('.m_58'), 6.5, {top:taipeiarr[57].top,left:taipeiarr[57].left});
-		TweenMax.to($('.m_59'), 6.5, {top:taipeiarr[58].top,left:taipeiarr[58].left});
-		TweenMax.to($('.m_60'), 6.5, {top:taipeiarr[59].top,left:taipeiarr[59].left});
-		TweenMax.to($('.m_61'), 6.5, {top:taipeiarr[60].top,left:taipeiarr[60].left});
-		TweenMax.to($('.m_62'), 6.5, {top:taipeiarr[61].top,left:taipeiarr[61].left});
-		TweenMax.to($('.m_63'), 6.5, {top:taipeiarr[62].top,left:taipeiarr[62].left});
-		TweenMax.to($('.m_64'), 6.5, {top:taipeiarr[63].top,left:taipeiarr[63].left});
-		TweenMax.to($('.m_65'), 6.5, {top:taipeiarr[64].top,left:taipeiarr[64].left});
-		TweenMax.to($('.m_66'), 6.5, {top:taipeiarr[65].top,left:taipeiarr[65].left});
-		TweenMax.to($('.m_67'), 6.5, {top:taipeiarr[66].top,left:taipeiarr[66].left});
-		TweenMax.to($('.m_68'), 6.5, {top:taipeiarr[67].top,left:taipeiarr[67].left});
-		TweenMax.to($('.m_69'), 6.5, {top:taipeiarr[68].top,left:taipeiarr[68].left});
-		TweenMax.to($('.m_70'), 6.5, {top:taipeiarr[69].top,left:taipeiarr[69].left});
-		TweenMax.to($('.m_71'), 6.5, {top:taipeiarr[70].top,left:taipeiarr[70].left});
-		TweenMax.to($('.m_72'), 6.5, {top:taipeiarr[71].top,left:taipeiarr[71].left});
-		TweenMax.to($('.m_73'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_74'), 6.5, {top:taipeiarr[73].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_75'), 6.5, {top:taipeiarr[74].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_76'), 6.5, {top:taipeiarr[75].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_77'), 6.5, {top:taipeiarr[76].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_78'), 6.5, {top:taipeiarr[77].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_79'), 6.5, {top:taipeiarr[78].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_80'), 6.5, {top:taipeiarr[79].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_81'), 6.5, {top:taipeiarr[80].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_82'), 6.5, {top:taipeiarr[81].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_83'), 6.5, {top:taipeiarr[82].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_84'), 6.5, {top:taipeiarr[83].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_85'), 6.5, {top:taipeiarr[84].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_86'), 6.5, {top:taipeiarr[85].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_87'), 6.5, {top:taipeiarr[86].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_88'), 6.5, {top:taipeiarr[87].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_89'), 6.5, {top:taipeiarr[88].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_90'), 6.5, {top:taipeiarr[89].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_91'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_92'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_93'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_94'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_95'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_96'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_97'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_98'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_99'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_100'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_101'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_102'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_103'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_104'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_105'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_106'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_107'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_108'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_109'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_110'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_111'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_112'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_113'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_114'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_115'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_116'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_117'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-		TweenMax.to($('.m_118'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
-
-
-
+		// var taipeiarr = [{
+		// 	    top:'140px',
+		// 	    left: '70%'
+		// 	}
+		// 	,{
+		// 	    top:'140px',
+		// 	    left: '70%'
+		// 	}
+		// 	,{
+		// 	    top:'160px',
+		// 	    left: '65%'
+		// 	}
+		// 	,{
+		// 	    top:'165px',
+		// 	    left: '66%'
+		// 	}
+		// 	,{
+		// 	    top:'170px',
+		// 	    left: '62%'
+		// 	}
+		// 	,{
+		// 	    top:'168px',
+		// 	    left: '63%'
+		// 	}
+		// 	,{
+		// 	    top:'167px',
+		// 	    left: '54%'
+		// 	}
+		// 	,{
+		// 	    top:'171px',
+		// 	    left: '50%'
+		// 	}
+		// 	,{
+		// 	    top:'196px',
+		// 	    left: '49%'
+		// 	}
+		// 	,{
+		// 	    top:'190px',
+		// 	    left: '44%'
+		// 	}
+		// 	,{
+		// 	    top:'200px',
+		// 	    left: '40%'
+		// 	}
+		// 	,{
+		// 	    top:'220px',
+		// 	    left: '36%'
+		// 	}
+		// 	,{
+		// 	    top:'200px',
+		// 	    left: '48%'
+		// 	}
+		// 	,{
+		// 	    top:'190px',
+		// 	    left: '40%'
+		// 	}
+		// 	,{
+		// 	    top:'190px',
+		// 	    left: '40%'
+		// 	}
+		// 	,{
+		// 	    top:'230px',
+		// 	    left: '30%'
+		// 	}
+		// 	,{
+		// 	    top:'230px',
+		// 	    left: '30%'
+		// 	}
+		// 	,{
+		// 	    top:'200px',
+		// 	    left: '35%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '17%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '18%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '20%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '30%'
+		// 	}
+		// 	,{
+		// 	    top:'250px',
+		// 	    left: '25%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '20%'
+		// 	}
+		// 	,{
+		// 	    top:'280px',
+		// 	    left: '15%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '-1%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '3%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '10%'
+		// 	}
+		// 	,{
+		// 	    top:'280px',
+		// 	    left: '10%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '-7%'
+		// 	}
+		// 	,{
+		// 	    top:'300px',
+		// 	    left: '-12%'
+		// 	}
+		// 	,{
+		// 	    top:'300px',
+		// 	    left: '-2%'
+		// 	}
+		// 	,{
+		// 	    top:'320px',
+		// 	    left: '-7%'
+		// 	}
+		// 	,{
+		// 	    top:'330px',
+		// 	    left: '-4%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '-4%'
+		// 	}
+		// 	,{
+		// 	    top:'320px',
+		// 	    left: '-6%'
+		// 	}
+		// 	,{
+		// 	    top:'350px',
+		// 	    left: '-9%'
+		// 	}
+		// 	,{
+		// 	    top:'340px',
+		// 	    left: '-20%'
+		// 	}
+		// 	,{
+		// 	    top:'330px',
+		// 	    left: '-24%'
+		// 	}
+		// 	,{
+		// 	    top:'320px',
+		// 	    left: '-30%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '-40%'
+		// 	}
+		// 	,{
+		// 	    top:'350px',
+		// 	    left: '-40%'
+		// 	}
+		// 	,{
+		// 	    top:'250px',
+		// 	    left: '70%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '65%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '64.5%'
+		// 	}
+		// 	,{
+		// 	    top:'270px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'260px',
+		// 	    left: '50%'
+		// 	}
+		// 	,{
+		// 	    top:'250px',
+		// 	    left: '44%'
+		// 	}
+		// 	,{
+		// 	    top:'280px',
+		// 	    left: '46%'
+		// 	}
+		// 	,{
+		// 	    top:'270px',
+		// 	    left: '41.5%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'300px',
+		// 	    left: '44%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'315px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'340px',
+		// 	    left: '40%'
+		// 	}
+		// 	,{
+		// 	    top:'290px',
+		// 	    left: '41%'
+		// 	}
+		// 	,{
+		// 	    top:'310px',
+		// 	    left: '38%'
+		// 	}
+		// 	,{
+		// 	    top:'370px',
+		// 	    left: '36%'
+		// 	}
+		// 	,{
+		// 	    top:'320px',
+		// 	    left: '16%'
+		// 	}
+		// 	,{
+		// 	    top:'320px',
+		// 	    left: '16%'
+		// 	}
+		// 	,{
+		// 	    top:'340px',
+		// 	    left: '16%'
+		// 	}
+		// 	,{
+		// 	    top:'330px',
+		// 	    left: '16%'
+		// 	}
+		// 	,{
+		// 	    top:'350px',
+		// 	    left: '6.5%'
+		// 	}
+		// 	,{
+		// 	    top:'360px',
+		// 	    left:'6%'
+		// 	}
+		// 	,{
+		// 	    top:'370px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'360px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'395px',
+		// 	    left: '8%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'405px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'395px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'385px',
+		// 	    left: '-21%'
+		// 	}
+		// 	,{
+		// 	    top:'400px',
+		// 	    left: '-10%'
+		// 	}
+		// 	,{
+		// 	    top:'380px',
+		// 	    left: '-6%'
+		// 	}
+		// 	,{
+		// 	    top:'355px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'355px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'345px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'325px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'335px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'345px',
+		// 	    left: '64%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '52%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '52%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '52%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '52%'
+		// 	}
+		// 	,{
+		// 	    top:'375px',
+		// 	    left: '52%'
+		// 	}
+		// 	,{
+		// 	    top:'395px',
+		// 	    left: '45%'
+		// 	}
+		// 	,{
+		// 	    top:'395px',
+		// 	    left: '39%'
+		// 	}
+		// 	,{
+		// 	    top:'395px',
+		// 	    left: '43%'
+		// 	}
+		// 	,{
+		// 	    top:'415px',
+		// 	    left: '38%'
+		// 	}
+		// 	,{
+		// 	    top:'50px',
+		// 	    left: '32%'
+		// 	}
+		// 	,{
+		// 	    top:'50px',
+		// 	    left: '32%'
+		// 	}
+		// 	,{
+		// 	    top:'400px',
+		// 	    left: '27%'
+		// 	}
+		// 	,{
+		// 	    top:'400px',
+		// 	    left: '27%'
+		// 	}
+		// 	,{
+		// 	    top:'400px',
+		// 	    left: '27%'
+		// 	}
+		// 	,{
+		// 	    top:'400px',
+		// 	    left: '27%'
+		// 	}
+		// 	,{
+		// 	    top:'430px',
+		// 	    left: '20%'
+		// 	}
+		// 	,{
+		// 	    top:'430px',
+		// 	    left: '20%'
+		// 	}
+		// 	,{
+		// 	    top:'450px',
+		// 	    left: '17%'
+		// 	}
+		// 	,{
+		// 	    top:'450px',
+		// 	    left: '17%'
+		// 	}
+		// 	,{
+		// 	    top:'470px',
+		// 	    left: '14%'
+		// 	}
+		// 	,{
+		// 	    top:'470px',
+		// 	    left: '14%'
+		// 	}
+		// 	,{
+		// 	    top:'130px',
+		// 	    left: '15%'
+		// 	}
+		// 	,{
+		// 	    top:'490px',
+		// 	    left: '10%'
+		// 	}];
+		//console.log(taipeiarr[0].top);
+		// TweenMax.to($('.m_1'), 6.5, {top:taipeiarr[0].top,left:taipeiarr[0].left});
+		// TweenMax.to($('.m_2'), 6.5, {top:taipeiarr[1].top,left:taipeiarr[1].left});
+		// TweenMax.to($('.m_3'), 6.5, {top:taipeiarr[2].top,left:taipeiarr[2].left});
+		// TweenMax.to($('.m_4'), 6.5, {top:taipeiarr[3].top,left:taipeiarr[3].left});
+		// TweenMax.to($('.m_5'), 6.5, {top:taipeiarr[4].top,left:taipeiarr[4].left});
+		// TweenMax.to($('.m_6'), 6.5, {top:taipeiarr[5].top,left:taipeiarr[5].left});
+		// TweenMax.to($('.m_7'), 6.5, {top:taipeiarr[6].top,left:taipeiarr[6].left});
+		// TweenMax.to($('.m_8'), 6.5, {top:taipeiarr[7].top,left:taipeiarr[7].left});
+		// TweenMax.to($('.m_9'), 6.5, {top:taipeiarr[8].top,left:taipeiarr[8].left});
+		// TweenMax.to($('.m_10'), 6.5, {top:taipeiarr[9].top,left:taipeiarr[9].left});
+		// TweenMax.to($('.m_11'), 6.5, {top:taipeiarr[10].top,left:taipeiarr[10].left});
+		// TweenMax.to($('.m_12'), 6.5, {top:taipeiarr[11].top,left:taipeiarr[11].left});
+		// TweenMax.to($('.m_13'), 6.5, {top:taipeiarr[12].top,left:taipeiarr[12].left});
+		// TweenMax.to($('.m_14'), 6.5, {top:taipeiarr[13].top,left:taipeiarr[13].left});
+		// TweenMax.to($('.m_15'), 6.5, {top:taipeiarr[14].top,left:taipeiarr[14].left});
+		// TweenMax.to($('.m_16'), 6.5, {top:taipeiarr[15].top,left:taipeiarr[15].left});
+		// TweenMax.to($('.m_17'), 6.5, {top:taipeiarr[16].top,left:taipeiarr[16].left});
+		// TweenMax.to($('.m_18'), 6.5, {top:taipeiarr[17].top,left:taipeiarr[17].left});
+		// TweenMax.to($('.m_19'), 6.5, {top:taipeiarr[18].top,left:taipeiarr[18].left});
+		// TweenMax.to($('.m_20'), 6.5, {top:taipeiarr[19].top,left:taipeiarr[19].left});
+		// TweenMax.to($('.m_21'), 6.5, {top:taipeiarr[20].top,left:taipeiarr[20].left});
+		// TweenMax.to($('.m_22'), 6.5, {top:taipeiarr[21].top,left:taipeiarr[21].left});
+		// TweenMax.to($('.m_23'), 6.5, {top:taipeiarr[22].top,left:taipeiarr[22].left});
+		// TweenMax.to($('.m_24'), 6.5, {top:taipeiarr[23].top,left:taipeiarr[23].left});
+		// TweenMax.to($('.m_25'), 6.5, {top:taipeiarr[24].top,left:taipeiarr[24].left});
+		// TweenMax.to($('.m_26'), 6.5, {top:taipeiarr[25].top,left:taipeiarr[25].left});
+		// TweenMax.to($('.m_27'), 6.5, {top:taipeiarr[26].top,left:taipeiarr[26].left});
+		// TweenMax.to($('.m_28'), 6.5, {top:taipeiarr[27].top,left:taipeiarr[27].left});
+		// TweenMax.to($('.m_29'), 6.5, {top:taipeiarr[28].top,left:taipeiarr[28].left});
+		// TweenMax.to($('.m_30'), 6.5, {top:taipeiarr[29].top,left:taipeiarr[29].left});
+		// TweenMax.to($('.m_31'), 6.5, {top:taipeiarr[30].top,left:taipeiarr[30].left});
+		// TweenMax.to($('.m_32'), 6.5, {top:taipeiarr[31].top,left:taipeiarr[31].left});
+		// TweenMax.to($('.m_33'), 6.5, {top:taipeiarr[32].top,left:taipeiarr[32].left});
+		// TweenMax.to($('.m_34'), 6.5, {top:taipeiarr[33].top,left:taipeiarr[33].left});
+		// TweenMax.to($('.m_35'), 6.5, {top:taipeiarr[34].top,left:taipeiarr[34].left});
+		// TweenMax.to($('.m_36'), 6.5, {top:taipeiarr[35].top,left:taipeiarr[35].left});
+		// TweenMax.to($('.m_37'), 6.5, {top:taipeiarr[36].top,left:taipeiarr[36].left});
+		// TweenMax.to($('.m_38'), 6.5, {top:taipeiarr[37].top,left:taipeiarr[37].left});
+		// TweenMax.to($('.m_39'), 6.5, {top:taipeiarr[38].top,left:taipeiarr[38].left});
+		// TweenMax.to($('.m_40'), 6.5, {top:taipeiarr[39].top,left:taipeiarr[39].left});
+		// TweenMax.to($('.m_41'), 6.5, {top:taipeiarr[40].top,left:taipeiarr[40].left});
+		// TweenMax.to($('.m_42'), 6.5, {top:taipeiarr[41].top,left:taipeiarr[41].left});
+		// TweenMax.to($('.m_43'), 6.5, {top:taipeiarr[42].top,left:taipeiarr[42].left});
+		// TweenMax.to($('.m_44'), 6.5, {top:taipeiarr[43].top,left:taipeiarr[43].left});
+		// TweenMax.to($('.m_45'), 6.5, {top:taipeiarr[44].top,left:taipeiarr[44].left});
+		// TweenMax.to($('.m_46'), 6.5, {top:taipeiarr[45].top,left:taipeiarr[45].left});
+		// TweenMax.to($('.m_47'), 6.5, {top:taipeiarr[46].top,left:taipeiarr[46].left});
+		// TweenMax.to($('.m_48'), 6.5, {top:taipeiarr[47].top,left:taipeiarr[47].left});
+		// TweenMax.to($('.m_49'), 6.5, {top:taipeiarr[48].top,left:taipeiarr[48].left});
+		// TweenMax.to($('.m_50'), 6.5, {top:taipeiarr[49].top,left:taipeiarr[49].left});
+		// TweenMax.to($('.m_51'), 6.5, {top:taipeiarr[50].top,left:taipeiarr[50].left});
+		// TweenMax.to($('.m_52'), 6.5, {top:taipeiarr[51].top,left:taipeiarr[51].left});
+		// TweenMax.to($('.m_53'), 6.5, {top:taipeiarr[52].top,left:taipeiarr[52].left});
+		// TweenMax.to($('.m_54'), 6.5, {top:taipeiarr[53].top,left:taipeiarr[53].left});
+		// TweenMax.to($('.m_55'), 6.5, {top:taipeiarr[54].top,left:taipeiarr[54].left});
+		// TweenMax.to($('.m_56'), 6.5, {top:taipeiarr[55].top,left:taipeiarr[55].left});
+		// TweenMax.to($('.m_57'), 6.5, {top:taipeiarr[56].top,left:taipeiarr[56].left});
+		// TweenMax.to($('.m_58'), 6.5, {top:taipeiarr[57].top,left:taipeiarr[57].left});
+		// TweenMax.to($('.m_59'), 6.5, {top:taipeiarr[58].top,left:taipeiarr[58].left});
+		// TweenMax.to($('.m_60'), 6.5, {top:taipeiarr[59].top,left:taipeiarr[59].left});
+		// TweenMax.to($('.m_61'), 6.5, {top:taipeiarr[60].top,left:taipeiarr[60].left});
+		// TweenMax.to($('.m_62'), 6.5, {top:taipeiarr[61].top,left:taipeiarr[61].left});
+		// TweenMax.to($('.m_63'), 6.5, {top:taipeiarr[62].top,left:taipeiarr[62].left});
+		// TweenMax.to($('.m_64'), 6.5, {top:taipeiarr[63].top,left:taipeiarr[63].left});
+		// TweenMax.to($('.m_65'), 6.5, {top:taipeiarr[64].top,left:taipeiarr[64].left});
+		// TweenMax.to($('.m_66'), 6.5, {top:taipeiarr[65].top,left:taipeiarr[65].left});
+		// TweenMax.to($('.m_67'), 6.5, {top:taipeiarr[66].top,left:taipeiarr[66].left});
+		// TweenMax.to($('.m_68'), 6.5, {top:taipeiarr[67].top,left:taipeiarr[67].left});
+		// TweenMax.to($('.m_69'), 6.5, {top:taipeiarr[68].top,left:taipeiarr[68].left});
+		// TweenMax.to($('.m_70'), 6.5, {top:taipeiarr[69].top,left:taipeiarr[69].left});
+		// TweenMax.to($('.m_71'), 6.5, {top:taipeiarr[70].top,left:taipeiarr[70].left});
+		// TweenMax.to($('.m_72'), 6.5, {top:taipeiarr[71].top,left:taipeiarr[71].left});
+		// TweenMax.to($('.m_73'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_74'), 6.5, {top:taipeiarr[73].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_75'), 6.5, {top:taipeiarr[74].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_76'), 6.5, {top:taipeiarr[75].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_77'), 6.5, {top:taipeiarr[76].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_78'), 6.5, {top:taipeiarr[77].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_79'), 6.5, {top:taipeiarr[78].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_80'), 6.5, {top:taipeiarr[79].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_81'), 6.5, {top:taipeiarr[80].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_82'), 6.5, {top:taipeiarr[81].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_83'), 6.5, {top:taipeiarr[82].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_84'), 6.5, {top:taipeiarr[83].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_85'), 6.5, {top:taipeiarr[84].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_86'), 6.5, {top:taipeiarr[85].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_87'), 6.5, {top:taipeiarr[86].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_88'), 6.5, {top:taipeiarr[87].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_89'), 6.5, {top:taipeiarr[88].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_90'), 6.5, {top:taipeiarr[89].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_91'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_92'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_93'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_94'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_95'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_96'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_97'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_98'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_99'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_100'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_101'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_102'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_103'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_104'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_105'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_106'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_107'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_108'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_109'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_110'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_111'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_112'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_113'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_114'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_115'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_116'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_117'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		// TweenMax.to($('.m_118'), 6.5, {top:taipeiarr[72].top,left:taipeiarr[72].left});
+		console.log($('.line_2').parents());
 	</script>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </html>

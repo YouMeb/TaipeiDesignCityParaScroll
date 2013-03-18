@@ -585,7 +585,9 @@ ol, ul {
     z-index: 99;
 
 }
-
+.sectionfade{
+    display: none;
+}
 
 .content4_title > .content_title{
     margin-left: 200px;
