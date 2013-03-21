@@ -103,17 +103,17 @@
 		<script src="/js/jquery.superscrollorama.js"></script>
 		<script>
 		    $(function(){
-		        // $(window).bind('scroll',function(e){
-		        //     parallaxScroll();
-		        //     //redrawDotNav();
-		        // });
-		        // function parallaxScroll(){
-		        //     var scrolled = $(window).scrollTop();
-		        //     console.log(scrolled);
-		        //     $('.yo').css('top',(0-(scrolled*.25))+'px');
-		        //     $('.yo1').css('top',(0-(scrolled*.5))+'px');
-		        //     // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
-		        // }
+		        $(window).bind('scroll',function(e){
+		            parallaxScroll();
+		            //redrawDotNav();
+		        });
+		        function parallaxScroll(){
+		            var scrolled = $(window).scrollTop();
+		            console.log(scrolled);
+		            $('.yo').css('top',(0-(scrolled*.25))+'px');
+		            $('.yo1').css('top',(0-(scrolled*.5))+'px');
+		            // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+		        }
 		       $('.curtains').curtain({
 		           scrollSpeed: 300,
 		           controls: '#menu',
