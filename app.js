@@ -38,6 +38,9 @@ app.get('/index3', function(req, res) {
 app.get('/index4', function(req, res) {
   res.render('index4');
 });
+app.get('/index5', function(req, res) {
+  res.render('index5');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

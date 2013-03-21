@@ -714,3 +714,11 @@ ol, ul {
     position: relative;
     z-index: 45;
 }
+.psfixed{
+    position: fixed;
+}
+.ct_2{
+    z-index: 99;
+    position: absolute;
+    left: 15%;
+}

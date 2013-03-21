@@ -113,19 +113,21 @@
 		</div>
 		<div id="section-2" class="slide">
 			<div class="section-2bg">
-				<div class="content_title">
-					<img src="/img/title2.png"/>
-				</div>
-				<div class="content ct_2bg">
-					<div>
-					<p>和城市一起走過的路，醞釀強大的設計力量</p>
-					<p>因為2016臺北市申請世界設計之都的幸福願景，我們
-						不只向前走，也開始回頭細數、深刻探究臺北的過去，
-						回味人與環境互動下，獨特的光陰故事。</p>
-					<p>漸漸的我們長大，城市也隨著我們悄悄蛻變、不斷提昇
-						、不斷進化。我們體會，生活的美好總是出現在不經意
-						之處，平日漫步的臺北街頭有了更有趣的風景。城市的
-						角落，正醞釀著強大的設計力量。</p>
+				<div class="ct_2">
+					<div class="content_title">
+						<img src="/img/title2.png"/>
+					</div>
+					<div class="content ct_2bg">
+						<div>
+						<p>和城市一起走過的路，醞釀強大的設計力量</p>
+						<p>因為2016臺北市申請世界設計之都的幸福願景，我們
+							不只向前走，也開始回頭細數、深刻探究臺北的過去，
+							回味人與環境互動下，獨特的光陰故事。</p>
+						<p>漸漸的我們長大，城市也隨著我們悄悄蛻變、不斷提昇
+							、不斷進化。我們體會，生活的美好總是出現在不經意
+							之處，平日漫步的臺北街頭有了更有趣的風景。城市的
+							角落，正醞釀著強大的設計力量。</p>
+						</div>
 					</div>
 				</div>
 				<img src="/img/bicycle.png" class="bicycle" style=""/>
@@ -135,23 +137,26 @@
 		</div>
 		<div id="section-3" class="slide">
 			<div class="section-3bg">
-				<div class="content_title">
-					<img src="/img/title3.png"/>
-				</div>
-				<div class="content">
-					<p>因為設計之都，我們
-						一起看見了臺北的設
-						計靈魂。</p>
-					<p>周遭流動的風景不再
-						是理所當然，我們用
-						更好奇的眼光觀察、
-						記錄這個世代
-						日常現象彷彿也有了
-						新的意義，我們更熱
-						切的與其他人分享。
-						向世界展現臺北市對
-						於申辦世界設計之都
-						的熱情。</p>
+				<div class="ct_3">
+					<div class="content_title">
+						<img src="/img/title3.png"/>
+					</div>
+					<div class="content">
+						<p>因為設計之都，我們
+							一起看見了臺北的設
+							計靈魂。</p>
+						<p>周遭流動的風景不再
+							是理所當然，我們用
+							更好奇的眼光觀察、
+							記錄這個世代
+							日常現象彷彿也有了
+							新的意義，我們更熱
+							切的與其他人分享。
+							向世界展現臺北市對
+							於申辦世界設計之都
+							的熱情。</p>
+					</div>
+					<img src="/img/logos.png"/>
 				</div>
 			</div>
 		</div>
@@ -326,14 +331,16 @@
 			body_fr = $('body'),
 			loading_fr = document.getElementById('loading_fr'),
 			i=0,
-			wHeight = $(window).height(); 
+			wHeight = $(window).height(),
+			wWidth = $(window).width(),
+			indexmargin = (wHeight- 250)/2;
 		function adjustsectionheight(){
 			$('#section-0').css('height',wHeight);
 			$('#section-1').css('height',2*wHeight);
-			$('#section-2').css('height',2*wHeight);
+			$('#section-2').css('height',8*wHeight);
 			$('#section-3').css('height',2*wHeight);
 			$('#section-4').css('height',2*wHeight);
-			$('#section-5').css('height',2*wHeight);
+			$('#section-5').css('height',8*wHeight);
 		}
 		adjustsectionheight();
 		function al(){   
@@ -364,9 +371,6 @@
 		}
 		// TweenMax.from(body_fr,.5, {width:"120%"}).to(body_fr, 2, {width:"100%"});
 		// TweenMax.to(logo_pic_fr, .8, {display:"none"});
-
-
-
 		$(window).bind('scroll',function(e){
             parallaxScroll();
             //redrawDotNav();
@@ -374,20 +378,84 @@
         function parallaxScroll(){
             var scrolled = $(window).scrollTop();
             var scrolled_f = scrolled/wHeight;
-            console.log(scrolled_f);
-            $('.cld_1').css('top',(30-(scrolled_f*5))+'%');
-            $('.cld_2').css('top',(70-(scrolled_f*25))+'%');
+            //console.log(scrolled_f);
+            var o1Height = 800+indexmargin;
+            var start2Height = o1Height+(1.5*wHeight);
+            var o2Height = start2Height+(wHeight/2);
+            // var start3Height = o2Height+(1.5*wHeight);
+            // var o3Height = start3Height+(wHeight/2);
+            //console.log('o2Height'+o2Height);
+              $('.ct_2').css('top',wHeight-200);
+            if(scrolled<o1Height){
+            	$('.ct_1').removeClass('psfixed');
+            }
+            if(scrolled>=o1Height){
+            	//第一幕的卡住部分
+            	$('.ct_1').addClass('psfixed');
+            	//第一幕的相對動畫
+            	$('.cld_1').css('top',(30-(scrolled_f*5))+'%');
+            	$('.cld_2').css('top',(70-(scrolled_f*25))+'%');
+            	// $('.cld_3').css('top',(5-(scrolled_f*5))+'%');
+            	// $('.cld_4').css('top',(20-(scrolled_f*25))+'%');
+            	// $('.cld_5').css('top',(30-(scrolled_f*5))+'%');
+            	// $('.cld_6').css('top',(50-(scrolled_f*25))+'%');
+            	//第2幕的開始
+            	$('#section-2').css({'height':9*wHeight,'margin-top':-(1.5*wHeight)});
+            }
+
+            if(scrolled>=start2Height){
+            	//準備進第二幕
+            	$('.ct_1').removeClass('psfixed');
+            }
+            if(scrolled>=o2Height){
+            	console.log('scrolled'+scrolled);
+            		$('.ct_2').css({'margin-top':1.5*(scrolled-o2Height),'top':(scrolled-start2Height)*0.5});
+            		if ((scrolled-o2Height)>=wHeight){
+            			var setfixed2 = scrolled-o2Height-wHeight; //bike
+            			var setfixed3 = setfixed2 - wWidth -100; //train
+            			var setfixed4 = setfixed2 - 2*(wWidth -100); //train
+            			$('.ct_2').css({'margin-top':0,'top':0,'position':'fixed','display':'block'});
+            			//腳踏車出動
+            			$('.bicycle').css('bottom',0).css({'right':setfixed2-100,'position':'fixed','display':'block'});
+            			if (setfixed2 >= wWidth+500){
+            				//火車出動
+            				$('.train').css('bottom',0).css({'right':setfixed3-1500,'position':'fixed','display':'block'});
+            			}
+            			if (setfixed3 >= wWidth+500){
+            				//MRT出動
+            				$('.MRT').css('bottom',0).css({'right':setfixed4-2500,'position':'fixed','display':'block'});
+            			}
+            			$('#section-2').css('margin-top',0);
+            		}
+            		else{
+            			$('.ct_2').css('display','none');
+            			$('.bicycle').css('display','none');
+            			$('.train').css('display','none');
+            			$('.MRT').css('display','none');
+
+            		}
+            }
+            if(scrolled>=start3Height){
+            	//準備進第二幕
+            	//$('.ct_3').removeClass('psfixed');
+            }
+
+            if(scrolled>=o2Height+1000){
+            	
+            }
             // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+        
+
         }
         function maskclear(){
         	TweenMax.to($('.mask_1'), 0, {display:'none'});
-
         }
 		function addtagClass(){
-			//TweenMax.to($('#section-0'), 2, {height:0,opacity:0});
+
 			TweenMax.to($('.mask_1'), 2, {opacity:0,onComplete:maskclear});
+			//第一幕飛機移動
 			TweenMax.to($('.airplane'), 8, {top:'-50%',left:'80%',width:'60%'});
-			//TweenMax.to($('.cld_1'), 8, {y:'100%'});
+
 			$('body').css('overflow', '');
 			$('.line_fr_l').addClass('line_fr_left_ac');
 			$('.line_1').addClass('line_tr_1');
@@ -420,14 +488,12 @@
 								moveArr.push(numberArr[z]);
 								zz = 5-i ; 
 								var aa ='.line_'+numberArr[z];
-								
 								//console.log('推下aa: '+aa+'; zz: '+zz+';移動:'+(kerker+zz*50))
 								TweenMax.to($(aa),.5, {top:position[numberArr[z]-1]+zz*50});
 								position[numberArr[z]-1] = position[numberArr[z]-1]+zz*50;
 								console.log()
 							}
 							//---
-
 							//清空對應數值前的數值
 							numberArr.splice(0,i);
 							//---
@@ -439,18 +505,13 @@
 								TweenMax.to($(aa),.5, {top:position[numberArr[g]-1]-((zz)*50)});
 								position[numberArr[g]-1] = position[numberArr[g]-1]-((zz)*50);
 							}
-
-
-
 							//console.log('numberArr:'+numberArr);
 							//console.log('moveArr:'+moveArr);
-
 							//把在moveArr中的數值push回numberArr
 							for ( var x in moveArr){
 								numberArr.push(moveArr[x]);
 							}
 							//---
-
 							//清空move
 							moveArr =[];
 							//console.log('after number:'+numberArr)
@@ -458,18 +519,6 @@
 							//--
 						}
 					}
-					// var number; 
-					// number = $wantstate - nowstate;
-					// console.log('number:'+number);
-					// if (number >= 3){
-
-					// }
-					// else if (number< 2){
-
-					// }
-					// nowstate = $wantstate ;
-					// console.log($wantstate);
-					// console.log('nowstate:'+nowstate);
 				},
 				mouseover: function(e){
 					TweenMax.to($(this), .4, {position:'relative',right:'40px'});
@@ -477,7 +526,6 @@
 					var section = $(this).data('section');
 					//console.log($(thi);
 					switch(section) {
-
 						case 'city':
 							$('.title_1_a').removeClass('fadeOutRight').addClass('display animated fadeInRight')
 							break;
@@ -520,7 +568,6 @@
 			var  $cur = $('.curtains');
 			TweenMax.to($cur , .0, {display:'block',onComplete:first_scence});
 		}
-		
 		RepositionNav();
 		$(window).resize(function(){
 			RepositionNav();
@@ -537,6 +584,13 @@
 		// $('#section-4').parallax("50%", 2750, 0.3, true);
 		// $('#section-5').parallax("50%", 2750, 0.3, true);
 		var $nav = $('#nav').find('li');
+		$('.ct_1').bind('inview', function (event, visible) {
+			if (visible == true) {
+				console.log('hey! you see it!')
+			} else {
+				
+			}
+		});
 		$('.insection-1').bind('inview', function (event, visible) {
 			if (visible == true) {
 				
@@ -598,7 +652,6 @@
 			}
 		]);
 		TweenMax.to($('.gb'), 3000, {rotation: 7200});
-		
 		// var taipeiarr = [{
 		// 	    top:'140px',
 		// 	    left: '70%'
