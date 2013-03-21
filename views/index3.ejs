@@ -408,7 +408,7 @@
             	$('.ct_1').removeClass('psfixed');
             }
             if(scrolled>=o2Height){
-            	console.log('scrolled'+scrolled);
+            	//console.log('scrolled'+scrolled);
             		$('.ct_2').css({'margin-top':1.5*(scrolled-o2Height),'top':(scrolled-start2Height)*0.5});
             		if ((scrolled-o2Height)>=wHeight){
             			var setfixed2 = scrolled-o2Height-wHeight; //bike
@@ -483,7 +483,7 @@
 							//console.log('i:'+i)
 							//抓取對應的數值，並加進moveArr中
 							for (z=0;z<i;z++){
-								console.log('z:'+z);
+								//console.log('z:'+z);
 								var zz =0 ;
 								moveArr.push(numberArr[z]);
 								zz = 5-i ; 
@@ -491,7 +491,7 @@
 								//console.log('推下aa: '+aa+'; zz: '+zz+';移動:'+(kerker+zz*50))
 								TweenMax.to($(aa),.5, {top:position[numberArr[z]-1]+zz*50});
 								position[numberArr[z]-1] = position[numberArr[z]-1]+zz*50;
-								console.log()
+								//console.log()
 							}
 							//---
 							//清空對應數值前的數值
@@ -586,7 +586,7 @@
 		var $nav = $('#nav').find('li');
 		$('.ct_1').bind('inview', function (event, visible) {
 			if (visible == true) {
-				console.log('hey! you see it!')
+				//console.log('hey! you see it!')
 			} else {
 				
 			}
