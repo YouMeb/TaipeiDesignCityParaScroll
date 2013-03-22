@@ -162,7 +162,7 @@
 		<div id="section-3" class="slide">
 			<div class="section-3bg">
 				<div class="ct_3">
-					<div class="content_title">
+					<div class="content_title content_title3">
 						<img src="/img/title3.png"/>
 					</div>
 					<div class="content">
@@ -300,18 +300,20 @@
 						<img src="/img/man2.png" class="man2 m_114"/> -->
 					</div>
 					<div class="content4_title">
-						<div class="content_title content_title4">
-							<img src="/img/title4.png"/>
-						</div>
-						<div class="fr_4content">
-							<div class="content1">
-								<p>我們不斷凝聚有熱血、有想法，願意站起來，動手為這個城市做一些改變的人運用網路與科技、融合人文的關懷與同理心，具體解決居民的食衣住行問題</p>
-								<p>民間設計能量正熱血實踐一個個具體案例，創造更多幸福，讓這座城市變得更好。</p>
+						<div class="ct_4">
+							<div class="content_title content_title4">
+								<img src="/img/title4.png"/>
 							</div>
-							<img src="/img/textBK4.png" />
-						</div>
-						<div class="fr_4content_man">
-							<img src="/img/taipeippl.png" class"tppl"/>
+							<div class="fr_4content">
+								<div class="content1">
+									<p>我們不斷凝聚有熱血、有想法，願意站起來，動手為這個城市做一些改變的人運用網路與科技、融合人文的關懷與同理心，具體解決居民的食衣住行問題</p>
+									<p>民間設計能量正熱血實踐一個個具體案例，創造更多幸福，讓這座城市變得更好。</p>
+								</div>
+								<img src="/img/textBK4.png" />
+							</div>
+							<div class="fr_4content_man">
+								<img src="/img/taipeippl.png" class"tppl"/>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -332,15 +334,15 @@
 					<div class="content_art">
 						<img src="/img/photos.jpg"/>
 					</div>
+					<img src="/img/bg5.png" class="cld4s b_cld1" />
+					<img src="/img/bg5.png" class="cld4s b_cld2" />
+					<img src="/img/bg5.png" class="cld4s b_cld3" />
+					<img src="/img/bg5.png" class="cld4s b_cld4" />
+					<img src="/img/bg5.png" class="cld4s b_cld5" />
+					<img src="/img/bg5.png" class="cld4s b_cld6" />
+					<img src="/img/bg5.png" class="cld4s b_cld7" />
+					<img src="/img/bg5.png" class="cld4s b_cld8" />
 				</div>
-				<img src="/img/bg5.png" class="cld4s b_cld1" />
-				<img src="/img/bg5.png" class="cld4s b_cld2" />
-				<img src="/img/bg5.png" class="cld4s b_cld3" />
-				<img src="/img/bg5.png" class="cld4s b_cld4" />
-				<img src="/img/bg5.png" class="cld4s b_cld5" />
-				<img src="/img/bg5.png" class="cld4s b_cld6" />
-				<img src="/img/bg5.png" class="cld4s b_cld7" />
-				<img src="/img/bg5.png" class="cld4s b_cld8" />
 				<div class="gr_fr">
 					<img src="/img/greenman.gif" id="greenman"/>
 				</div>
@@ -349,6 +351,9 @@
 			<!-- <div class="final_log">
 				<img src="/img/index_logo.png"/>
 			</div> -->
+		</div>
+		<div id="section-6" class="slide">
+
 		</div>
 	</body>
 	<script src="/js/jquery.js"></script>
@@ -435,6 +440,10 @@
             var o2Height = start2Height+(wHeight/2);
             var start3Height = o2Height+(8.5*wHeight);
             var o3Height = start3Height+(wHeight/2);
+            var start4Height = o3Height+(2.5*wHeight);
+            var o4Height = start4Height+(wHeight/2);
+			var start5Height = o4Height+(2*wHeight);
+			var o5Height = start5Height+(wHeight/2);
             // var start3Height = o2Height+(1.5*wHeight);
             // var o3Height = start3Height+(wHeight/2);
             //console.log('o2Height'+o2Height);
@@ -511,7 +520,7 @@
             	// $('.cld_5').css('top',(30-(scrolled_f*5))+'%');
             	// $('.cld_6').css('top',(50-(scrolled_f*25))+'%');
             	//第2幕的開始
-            	$('#section-2').css({'height':9*wHeight,'margin-top':-(1.5*wHeight)});
+            	$('#section-2').css({'height':9*wHeight,'margin-top':-(1*wHeight+30)});
             }
             if(scrolled>=(start2Height-0.5*wHeight)){
             	$('.cc_1').removeClass('psfixed');
@@ -568,24 +577,52 @@
             	$('.ct_2').css('display','none');
             	$('.ct_2_1').css('display','none');
             	$('.ct_2_2').css('display','block');
-
-            	$('#section-3').css({'height':6*wHeight,'margin-top':-(0.5*wHeight)});
+            	
+            	//$('#section-3').css({'height':6*wHeight,'margin-top':-(0.5*wHeight)});
             }
             $('.ct_3').removeClass('psfixed');
+
+            if(scrolled>=(o3Height-wHeight)){
+            	 $('.ct_3').addClass('psfixed');
+            }
             if(scrolled>=o3Height){
             	$('#section-3').css({'height':5*wHeight,'margin-top':-(0.5*wHeight)});
-            	if ((scrolled-o3Height)<=(0.5*wHeight)){
-            		$('.ct_3').css('top',(scrolled-o3Height)+wHeight);
-            	}
-            	$('.ct_3').css('top',1.5*wHeight);
+            	$('.ct_3').css('top',0);
             	$('.ct_3').addClass('psfixed');
 
             	if(scrolled>=o3Height+2*wHeight){
 
             	}
             }
+            if(scrolled>=start4Height){
+            	//console.log('即將4');
+
+            	$('#section-4').css({'height':3.5*wHeight,'margin-top':-(1.5*wHeight)});
+            }
+            if(scrolled>=start4Height+0.5*wHeight){
+            	$('.ct_3').removeClass('psfixed');
+            	$('.ct_4').addClass('psfixed');
+            	$('.ct_4').css('top',0);
+            }
+            if(scrolled>=start5Height){
+            	console.log('即將5');
+            	$('#section-5').css({'height':9*wHeight,'margin-top':-(1.5*wHeight)});
+            	$('.ct_5').addClass('psfixed');
+            	$('.ct_5').css('top',0);
+            }
+
+
+            if(scrolled>=start5Height+0.5*wHeight){
+            	$('.ct_4').removeClass('psfixed');
+            	
+            }
+            if(scrolled>=start5Height+wHeight){
+            	$('.ct_5').removeClass('psfixed');
+            	$('#section-5').css({'margin-top':0})
+            	
+            }
             // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
-        
+        	$('#section-6').css({'top':o5Height+0.5*wHeight});
 
         }
         function maskclear(){
@@ -725,54 +762,54 @@
 		// $('#section-4').parallax("50%", 2750, 0.3, true);
 		// $('#section-5').parallax("50%", 2750, 0.3, true);
 		var $nav = $('#nav').find('li');
-		$('.ct_1').bind('inview', function (event, visible) {
-			if (visible == true) {
-				//console.log('hey! you see it!')
-			} else {
+		// $('.ct_1').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
+		// 		//console.log('hey! you see it!')
+		// 	} else {
 				
-			}
-		});
-		$('.insection-1').bind('inview', function (event, visible) {
-			if (visible == true) {
+		// 	}
+		// });
+		// $('.insection-1').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
 				
-				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
-				TweenMax.to($('.line_1'), .4, {position:'relative',right:'40px'});
-			} else {
-				TweenMax.to($('.line_1'), .4, {position:'relative',right:'0px'});
-			}
-		});
-		$('#section-2').bind('inview', function (event, visible) {
-			if (visible == true) {
-				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
-				TweenMax.to($('.line_2'), .4, {position:'relative',right:'40px'});
-			} else {
-				TweenMax.to($('.line_2'), .4, {position:'relative',right:'0px'});
-			}
-		});
-		$('#section-3').bind('inview', function (event, visible) {
-			if (visible == true) {
-				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
-				TweenMax.to($('.line_3'), .4, {position:'relative',right:'40px'});
-			} else {
-				TweenMax.to($('.line_3'), .4, {position:'relative',right:'0px'});
-			}
-		});
-		$('#section-4').bind('inview', function (event, visible) {
-			if (visible == true) {
-				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
-				TweenMax.to($('.line_4'), .4, {position:'relative',right:'40px'});
-			} else {
-				TweenMax.to($('.line_4'), .4, {position:'relative',right:'0px'});
-			}
-		});
-		$('#section-5').bind('inview', function (event, visible) {
-			if (visible == true) {
-				TweenMax.to($nav, .4, {position:'relative',right:'0px'});
-				TweenMax.to($('.line_5'), .4, {position:'relative',right:'40px'});
-			} else {
-				TweenMax.to($('.line_5'), .4, {position:'relative',right:'0px'});
-			}
-		});
+		// 		TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+		// 		TweenMax.to($('.line_1'), .4, {position:'relative',right:'40px'});
+		// 	} else {
+		// 		TweenMax.to($('.line_1'), .4, {position:'relative',right:'0px'});
+		// 	}
+		// });
+		// $('#section-2').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
+		// 		TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+		// 		TweenMax.to($('.line_2'), .4, {position:'relative',right:'40px'});
+		// 	} else {
+		// 		TweenMax.to($('.line_2'), .4, {position:'relative',right:'0px'});
+		// 	}
+		// });
+		// $('#section-3').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
+		// 		TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+		// 		TweenMax.to($('.line_3'), .4, {position:'relative',right:'40px'});
+		// 	} else {
+		// 		TweenMax.to($('.line_3'), .4, {position:'relative',right:'0px'});
+		// 	}
+		// });
+		// $('#section-4').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
+		// 		TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+		// 		TweenMax.to($('.line_4'), .4, {position:'relative',right:'40px'});
+		// 	} else {
+		// 		TweenMax.to($('.line_4'), .4, {position:'relative',right:'0px'});
+		// 	}
+		// });
+		// $('#section-5').bind('inview', function (event, visible) {
+		// 	if (visible == true) {
+		// 		TweenMax.to($nav, .4, {position:'relative',right:'0px'});
+		// 		TweenMax.to($('.line_5'), .4, {position:'relative',right:'40px'});
+		// 	} else {
+		// 		TweenMax.to($('.line_5'), .4, {position:'relative',right:'0px'});
+		// 	}
+		// });
 		//點選nav
 		var deck = new $.scrolldeck({
 			slides: '.slide',

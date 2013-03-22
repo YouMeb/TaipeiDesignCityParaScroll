@@ -153,6 +153,12 @@ ol, ul {
     overflow-x:hidden;
 
 }
+#section-6{
+    width: 100%;
+    z-index: 4;
+    overflow-x:hidden;
+
+}
 .man1,.man2,.man3,.man4{
     width: 25px;
     position: relative;
@@ -757,9 +763,7 @@ ol, ul {
     position: relative;
     z-index: 45;
 }
-.psfixed{
-    position: fixed;
-}
+
 .ct_2{
     z-index: 99;
     position: absolute;
@@ -768,7 +772,6 @@ ol, ul {
 .ct_3{
     z-index: 99;
     position: absolute;
-    left: 15%;
 }
 .cc_1{
     /*bottom:-120px;*/
@@ -939,4 +942,25 @@ ol, ul {
 .fr_4content_man img{
     width: 70%;
     margin-left: 15%;
+}
+.psfixed{
+    position: fixed;
+}
+.content_title3{
+    margin-left: 0;
+}
+.content_title3 img {
+    width: 600px;
+}
+.ct_3 .content{
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.ct_3 .content p{
+    color:#89b4c0;
+    font-size: 18px;
+    line-height: 20px;
+}
+.bicycle{
+    width:20%
 }
