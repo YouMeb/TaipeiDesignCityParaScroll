@@ -170,10 +170,16 @@ ol, ul {
 }
 .content_art{
     width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /*IE8*/
+    filter:alpha(opacity=0); 
+    opacity: 0
 }
 .content_art img{
     width: 70%;
     margin-left:15%; 
+    position: absolute;
+    top:10%;
+    z-index: 999999
 }
 .content_title img{
     width: 400px;
@@ -787,7 +793,25 @@ ol, ul {
 }
 .logos_div{
     margin-left: 30%;
-    width: 60%;
+    width: 50%;
+}
+.fb{
+    position: absolute;
+top: 90%;
+left: 63%;
+width: 5%;
+
+}
+.youtube{
+    position: absolute;
+left: 50%;
+width: 10%;
+}
+.pinterest{
+    position: absolute;
+    left: 30%;
+    top:80%;
+    width: 5%;
 }
 .content_title_1{
     width: 300%;
@@ -963,4 +987,7 @@ ol, ul {
 }
 .bicycle{
     width:20%
+}
+.c5_content{
+    margin-bottom: 200px;
 }

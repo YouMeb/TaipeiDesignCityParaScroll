@@ -171,11 +171,10 @@
 							日常現象彷彿也有了新的意義，我們更熱切的與其他人分享。向世界展現臺北市對
 							於申辦世界設計之都的熱情。</p>
 					</div>
-					<img src="/img/logos.png" class="logos_div"/>
-					<img src="/img/logosline.png" class="logos_line_div"/>
-					<img src="/img/fb.png"/>
-					<img src="/img/youtube.png"/>
-					<img src="/img/pinterest.png"/>
+					<img src="/img/logos_Animation.gif" class="logos_div"/>
+					<img src="/img/fb.png" class="fb" href="www.facebook.com"/>
+					<img src="/img/youtube.png" class="youtube" href="www.youtube.com.tw"/>
+					<img src="/img/pinterest.png" class="pinterest" href="www.pinterest.com"/>
 					
 				</div>
 			</div>
@@ -325,7 +324,7 @@
 					<div class="content_title content_title5">
 						<img src="/img/title5.png"/>
 					</div>
-					<div class="content">
+					<div class="content c5_content">
 						<p>這一次，我們玩數位、拼熱血，串連線上臺北前所未有的設計能量由全世界第一個會走動的小綠人發聲，宣示「奔跑吧！臺北設計之光」</p>
 						<p>We Are Ready! <br/>
 						以實際行動支持臺北市奔向2016世界設計之都</p>
@@ -342,11 +341,12 @@
 					<img src="/img/bg5.png" class="cld4s b_cld6" />
 					<img src="/img/bg5.png" class="cld4s b_cld7" />
 					<img src="/img/bg5.png" class="cld4s b_cld8" />
+				
+					<div class="gr_fr">
+						<img src="/img/greenman.gif" id="greenman"/>
+					</div>
+					<img src="/img/global.png" class="gb" id="gb"/>
 				</div>
-				<div class="gr_fr">
-					<img src="/img/greenman.gif" id="greenman"/>
-				</div>
-				<img src="/img/global.png" class="gb" id="gb"/>
 			</div>
 			<!-- <div class="final_log">
 				<img src="/img/index_logo.png"/>
@@ -617,8 +617,10 @@
             	
             }
             if(scrolled>=start5Height+wHeight){
-            	$('.ct_5').removeClass('psfixed');
+            	
             	$('#section-5').css({'margin-top':0})
+            	//TweenMax.to($('.c5_content'), .4, {alpha:1,delay:3})
+            	TweenMax.to($('.content_art'), .6, {alpha:1,delay:2})
             	
             }
             // $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
