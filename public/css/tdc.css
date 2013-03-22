@@ -915,3 +915,28 @@ ol, ul {
     width: 70%;
     margin-left:15%;
 }
+.fr_4content {
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.fr_4content .content1{
+    width: 35%;float: left;
+}
+.content4_title .content1 p{
+    color: #d4392a;
+    font-size: 20px;
+    line-height: 20px;
+}
+.fr_4content img{
+    width: 45%;
+    margin-left: 5%;
+    float: left;
+    margin-top: 5%;
+}
+.fr_4content_man{
+
+}
+.fr_4content_man img{
+    width: 70%;
+    margin-left: 15%;
+}
