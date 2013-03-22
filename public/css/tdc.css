@@ -607,12 +607,13 @@ ol, ul {
 }
 
 .content4_title > .content_title{
-    margin-left: 200px;
+    
     font-size: 30px
 }
 .content4_title > .content{
-    width: 30%;
+    width: 32%;
     font-size: 20px;
+    margin-top: 10%;
     margin-left: 200px;
 }
 .ct_1{
@@ -747,6 +748,7 @@ ol, ul {
 .gb{
     width: 70%;
     margin-left:15%;
+    margin-top: 0%
 }
 .mask_1{
     width:100%;height:800px;position:relative;z-index:30
@@ -885,4 +887,31 @@ ol, ul {
     width: 2%;
     margin-top: 15%;
     margin-left: 49%;
+}
+.content_title4
+{
+
+    width: 300%;
+    margin-left: 0%;
+}
+.content_title4 img{
+    width: 600px;
+}
+.content4_title .content p{
+    color: #d4392a;
+    font-size: 20px;
+    line-height: 20px;
+}
+.gr_fr{
+    position: absolute;
+    width: 100%;
+    z-index: 9999999;
+}
+#greenman{
+    width: 5%;
+    margin-left: 47.5%;
+}
+.tppl{
+    width: 70%;
+    margin-left:15%;
 }
