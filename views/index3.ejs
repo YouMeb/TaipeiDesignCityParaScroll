@@ -11,7 +11,9 @@
 			<img src="/img/index_logo.png"/>
 		</div>
 		<div class="line_goto">
-			<img src="/img/bg_0.png"/>
+			<a class="gogo">
+				<img src="/img/bg_0.png"/>
+			</a>
 		</div>
 		<img src="/img/small_logo.png" class="s_logo_img" id="s_logo_pic_fr"/>
 		
@@ -37,7 +39,7 @@
 			</div>
 			<div class="line_fr_left" id ="logo_line">
 			<ul id="nav">
-				<a href="#section-2">
+				<a href="#section-1">
 					<li class="line_1" data-section="city">	
 						<!-- <img src="/img/tag_fr1.png" class="tag_tr"/> -->
 						<div class="cr_fr"></div>
@@ -370,6 +372,7 @@
 	<script src="/js/jquery.scrollAnimate.js"></script>
 	
 	<script>
+	//$('.gogo').click(function(){$.scrollTo({top:'110px', left:'290px'}, 800);});
 		var logo_line = document.getElementById('logo_line'),
 			line_fr = document.getElementById('line_fr'),
 			//logo_pic_fr = document.getElementById('logo_pic_fr'),
@@ -479,34 +482,37 @@
             	
             }
             $('.ct_2').css('top',wHeight-200);
-			
             if(scrolled<o1Height){
             	$('.ct_1').removeClass('psfixed');
             	$('.cc_1').removeClass('psfixed');
             	$('.cc_2').removeClass('psfixed');
             	$('.cc_3').removeClass('psfixed');
             }
+            $('#section-2').css({'height':9*wHeight,'margin-top':-(1*wHeight+30)});
             if(scrolled>=o1Height){
             	//第一幕的卡住部分
-            	$('.ct_1').addClass('psfixed');
             	
-				if ((scrolled-o1Height)<=150){
+            	$('.ct_1').addClass('psfixed');
+
+            	
+				if ((scrolled-o1Height)<=50){
 					$('.cc_1').addClass('psfixed');
 					$('.cc_1').css('bottom',-150+(scrolled-o1Height))
 				}
-				if ((scrolled-o1Height)<=250){
+				if ((scrolled-o1Height)<=150){
 					$('.cc_2').addClass('psfixed');
 					$('.cc_2').css('bottom',-250+(scrolled-o1Height))
 				}
-				if ((scrolled-o1Height)<=350){
+				if ((scrolled-o1Height)<=250){
 					$('.cc_3').addClass('psfixed');
 					$('.cc_3').css('bottom',-350+(scrolled-o1Height))
 
 					$('.cc_1').attr('src','/img/city1c.png');
 					$('.cc_2').attr('src','/img/city2c.png');
 					$('.cc_3').attr('src','/img/city3c.png');
-					TweenMax.to($('.airplane'), 8, {top:'-50%',left:'80%',width:'60%',onComplete:orin_airplane});
+					
 				}
+				TweenMax.to($('.airplane'), 8, {top:'-50%',left:'80%',width:'60%',onComplete:orin_airplane});
 				function orin_airplane(){
 				// 	TweenMax.to($('.airplane'), 8, {top:'100%',left:0,width:'60%',
 				// 	    left: 0;
@@ -523,7 +529,7 @@
             	// $('.cld_5').css('top',(30-(scrolled_f*5))+'%');
             	// $('.cld_6').css('top',(50-(scrolled_f*25))+'%');
             	//第2幕的開始
-            	$('#section-2').css({'height':9*wHeight,'margin-top':-(1*wHeight+30)});
+            	
             }
             if(scrolled>=(start2Height-0.5*wHeight)){
             	$('.cc_1').removeClass('psfixed');
@@ -542,12 +548,13 @@
             }
             if(scrolled>=o2Height){
             	//console.log('scrolled'+scrolled);
-            		$('.ct_2').css({'margin-top':1.5*(scrolled-o2Height),'top':(scrolled-start2Height)*0.5});
+            		//$('.ct_2').css({'margin-top':1.5*(scrolled-o2Height),'top':(scrolled-start2Height)*0.5});
             		if ((scrolled-o2Height)>=wHeight){
             			var setfixed2 = scrolled-o2Height-wHeight; //bike
             			var setfixed3 = setfixed2 - wWidth -100; //train
             			var setfixed4 = setfixed2 - 2*(wWidth -100); //train
             			$('.ct_2').css({'margin-top':0,'top':0,'position':'fixed','display':'block'});
+
             			//腳踏車出動
             			$('.bicycle').css('bottom',0).css({'right':setfixed2-100,'position':'fixed','display':'block'});
             			if (setfixed2 >= wWidth+500){
@@ -597,6 +604,7 @@
 
             	}
             }
+            $('#section-4').css({'height':3.5*wHeight,'margin-top':-(1.5*wHeight)});
             if(scrolled>=start4Height){
             	//console.log('即將4');
 
@@ -619,9 +627,10 @@
             	$('.ct_4').removeClass('psfixed');
             	
             }
+            $('#section-5').css({'margin-top':-(1.5*wHeight)});
             if(scrolled>=start5Height+wHeight){
             	
-            	$('#section-5').css({'margin-top':0})
+            //	$('#section-5').css({'margin-top':0})
             	//TweenMax.to($('.c5_content'), .4, {alpha:1,delay:3})
             	TweenMax.to($('.content_art'), .6, {alpha:1,delay:2})
             	

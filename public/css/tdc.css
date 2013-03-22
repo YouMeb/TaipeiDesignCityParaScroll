@@ -23,6 +23,7 @@ ol, ul {
     height:250px;
     float:left;
     margin-left: 0;
+    z-index: 9999999999999999999;
 }
 .line_fr_left_ac{
      width:100%;
@@ -905,8 +906,8 @@ width: 10%;
 .line_goto{
     /*display: none;*/
     position: absolute;
-    z-index: 99999;
-    width: 100%;
+    z-index: 999;
+    width: 93%;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -914,7 +915,8 @@ width: 10%;
 .line_goto img{
     width: 2%;
     margin-top: 15%;
-    margin-left: 49%;
+    margin-left: 53%;
+    cursor: pointer;
 }
 .content_title4
 {
