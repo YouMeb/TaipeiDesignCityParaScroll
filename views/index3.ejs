@@ -129,7 +129,7 @@
 		<div id="section-2" class="slide">
 			<div class="section-2bg">
 				<div class="ct_2">
-					<div class="content_title">
+					<div class="content_title content_title2">
 						<img src="/img/title2.png"/>
 					</div>
 					<div class="content ct_2bg">
@@ -502,6 +502,9 @@
 					$('.cc_3').addClass('psfixed');
 					$('.cc_3').css('bottom',-350+(scrolled-o1Height))
 
+					$('.cc_1').attr('src','/img/city1c.png');
+					$('.cc_2').attr('src','/img/city2c.png');
+					$('.cc_3').attr('src','/img/city3c.png');
 					TweenMax.to($('.airplane'), 8, {top:'-50%',left:'80%',width:'60%',onComplete:orin_airplane});
 				}
 				function orin_airplane(){
@@ -570,14 +573,14 @@
             	//$('.ct_3').removeClass('psfixed');
            // }
 
-            if(scrolled>=o2Height+1000){
-            	
-            }
             if(scrolled>=start3Height){
             	$('.ct_2').css('display','none');
+            }
+            $('.ct_2_1').css('display','block');
+            $('.ct_2_2').css('display','none');
+            if(scrolled>=o2Height+4*wHeight){
             	$('.ct_2_1').css('display','none');
             	$('.ct_2_2').css('display','block');
-            	
             	//$('#section-3').css({'height':6*wHeight,'margin-top':-(0.5*wHeight)});
             }
             $('.ct_3').removeClass('psfixed');
@@ -831,7 +834,7 @@
 				}
 			}
 		]);
-		TweenMax.to($('.gb'), 3000, {rotation: 7200});
+		TweenMax.to($('.gb'), 3000, {rotation: -7200});
 		// var taipeiarr = [{
 		// 	    top:'140px',
 		// 	    left: '70%'

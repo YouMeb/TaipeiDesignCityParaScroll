@@ -665,6 +665,7 @@ ol, ul {
     bottom: 0;
 }
 .ct_2bg{
+    margin-top: 10%;
     width: 592px;
     height: 312px;
     background-image:url('../img/textBK2.png');
@@ -990,4 +991,7 @@ width: 10%;
 }
 .c5_content{
     margin-bottom: 200px;
+}
+.content_title2{
+    margin-left: -30%
 }
